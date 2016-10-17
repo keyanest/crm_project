@@ -1,26 +1,3 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# Crm Project
-Your app description, here.
+![Build Status](https://codeship.com/projects/a05d03a0-76de-0134-cbc7-6e92554ed125/status?branch=master)
+![Code Climate](https://codeclimate.com/github/keyanest/crm_project.png)
+![Coverage Status](https://coveralls.io/repos/keyanest/crm_project/badge.png)
