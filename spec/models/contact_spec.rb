@@ -8,8 +8,8 @@ RSpec.describe Contact, type: :model do
     should validate_uniqueness_of(:phone_number)
     expect(contact).to be_valid
   end
-  it "is not valid without a first name" do
-    contact = FactoryGirl.build(:contact, first_name: nil)
+  it "is not valid without a name" do
+    contact = FactoryGirl.build(:contact, name: nil)
     expect(contact).to_not be_valid
   end
   it "is not valid without a last name" do

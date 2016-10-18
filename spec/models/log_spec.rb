@@ -7,8 +7,8 @@ RSpec.describe Log, type: :model do
     log = FactoryGirl.create(:log, user_id: 1, contact_id: 1)
     expect(log).to be_valid
   end
-  it "is not valid without a title" do
-    log = FactoryGirl.build(:log, title: nil)
+  it "is not valid without a name" do
+    log = FactoryGirl.build(:log, name: nil)
     expect(log).to_not be_valid
   end
   it "is not valid without a log_date" do

@@ -8,8 +8,8 @@ RSpec.describe Task, type: :model do
     task = FactoryGirl.create(:task, user_id: 1, contact_id: 1, log_id: 1)
     expect(task).to be_valid
   end
-  it "is not valid without a title" do
-    task = FactoryGirl.build(:task, title: nil)
+  it "is not valid without a name" do
+    task = FactoryGirl.build(:task, name: nil)
     expect(task).to_not be_valid
   end
   it "is not valid without a body" do
