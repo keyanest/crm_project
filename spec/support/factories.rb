@@ -19,4 +19,17 @@ FactoryGirl.define do
       sequence(:email) { |n| "larjax#{n}@launchacademy.com" }
       sequence(:company) { |n| "#{n} inc."}
   end
+
+  factory :log do
+    sequence(:title) { |n| "Called Mr.#{n}" }
+    log_date Date.new(2012, 3, 6)
+    sequence(:notes) { |n| "Discussed opportunity.#{n}" }
+  end
+
+  factory :task do
+    sequence(:title) { |n| "Call Mr.#{n}" }
+    sequence(:body) { |n| "Discuss opportunity.#{n}" }
+    assign_date Date.new(2012, 3, 6)
+    due_date Date.new(2012, 4, 6)
+  end
 end
