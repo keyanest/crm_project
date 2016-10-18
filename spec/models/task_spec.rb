@@ -4,9 +4,9 @@ RSpec.describe Task, type: :model do
   it "is valid with valid attributes" do
     user = FactoryGirl.create(:user)
     contact = FactoryGirl.create(:contact, user_id: 1)
-    log = FactoryGirl.create(:log, user_id: 1, contact_id: 1, log_date: Time.now)
+    log = FactoryGirl.create(:log, user_id: 1, contact_id: 1)
     task = FactoryGirl.create(:task, user_id: 1, contact_id: 1, log_id: 1)
-    expect(contact).to be_valid
+    expect(task).to be_valid
   end
   it "is not valid without a title" do
     task = FactoryGirl.build(:task, title: nil)
