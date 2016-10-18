@@ -10,10 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017234128) do
+ActiveRecord::Schema.define(version: 20161018002926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "first_name",   null: false
+    t.string   "last_name",    null: false
+    t.string   "phone_number", null: false
+    t.string   "email",        null: false
+    t.string   "company",      null: false
+    t.string   "position"
+    t.string   "department"
+    t.date     "last_contact"
+    t.integer  "user_id",      null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_contacts_on_user_id", using: :btree
+  end
+
+  create_table "logs", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.date     "date",       null: false
+    t.text     "notes",      null: false
+    t.integer  "contact_id", null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact_id"], name: "index_logs_on_contact_id", using: :btree
+    t.index ["user_id"], name: "index_logs_on_user_id", using: :btree
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "title",       null: false
+    t.text     "body",        null: false
+    t.date     "assign_date", null: false
+    t.date     "due_date",    null: false
+    t.integer  "contact_id",  null: false
+    t.integer  "user_id",     null: false
+    t.integer  "log_id",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["contact_id"], name: "index_tasks_on_contact_id", using: :btree
+    t.index ["log_id"], name: "index_tasks_on_log_id", using: :btree
+    t.index ["user_id"], name: "index_tasks_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
