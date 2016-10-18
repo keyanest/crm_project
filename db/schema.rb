@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018043521) do
+ActiveRecord::Schema.define(version: 20161018152047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "contacts", force: :cascade do |t|
-    t.string   "first_name",   null: false
+    t.string   "name",         null: false
     t.string   "last_name",    null: false
     t.string   "phone_number", null: false
     t.string   "email",        null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20161018043521) do
   end
 
   create_table "logs", force: :cascade do |t|
-    t.string   "title",      null: false
+    t.string   "name",       null: false
     t.date     "log_date",   null: false
     t.text     "notes",      null: false
     t.integer  "contact_id", null: false
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20161018043521) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "title",       null: false
+    t.string   "name",        null: false
     t.text     "body",        null: false
     t.date     "assign_date", null: false
     t.date     "due_date",    null: false
