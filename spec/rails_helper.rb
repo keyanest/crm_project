@@ -4,13 +4,16 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'coveralls'
+require "capybara/rails"
+require "valid_attribute"
+
 Coveralls.wear!('rails')
 
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
 
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.fixture_path = "#{::Rails.root}/spec/models"
 
   config.use_transactional_fixtures = true
 
@@ -19,8 +22,6 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
 end
-require "capybara/rails"
-require "valid_attribute"
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
