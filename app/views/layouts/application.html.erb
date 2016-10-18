@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CrmProject</title>
+    <title>CRM</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -9,6 +9,32 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <div>
+        <br/>
+          <h5><span>Hello <%= @user.first_name %>!</span>
+        <span><%= link_to "Logout", destroy_user_session_path, method: :delete %></span></h5>
+      </div>
+    <% else %>
+      <% if controller_name != "sessions" && action_name != "new" %>
+        <% if controller_name != "registrations"%>
+          <% if action_name != "new" || action_name != "show" %>
+            <%= render "layouts/sign_in_form" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <div>
+        <% if flash[:notice] %>
+          <h5 class="center-align"><%= flash[:notice] %></h5>
+        <% end %>
+        <% if flash[:success] %>
+          <h5 class="center-align"><%= flash[:success] %></h5>
+        <% end %>
+        <% if flash[:errors] %>
+          <h5 class="center-align"><%= flash[:errors] %></h5>
+        <% end %>
+      </div>
     <%= yield %>
   </body>
 </html>
