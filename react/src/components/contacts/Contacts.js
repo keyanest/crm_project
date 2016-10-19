@@ -8,40 +8,31 @@ class Contacts extends Component {
     this.state = {
       contacts: []
     };
-    this.loadContactsFromServer = this.loadContactsFromServer.bind(this);
   }
 
-  loadContactsFromServer() {
+
+  componentWillMount() {
     $.ajax({
-      url: "api/contacts.json",
-      dataType: "application/json"
+      url: "api/contacts",
     }).done(data => {
-      debugger;
       this.setState({ contacts: data })
     })
   }
 
-  componentWillMount() {
-    this.loadContactsFromServer();
-  }
-
 
   render () {
-    let contacts;
-    if (this.state.contacts.length > 0){
-      contacts = this.state.contacts.map(contact =>{
+    let contacts = this.state.contacts.map(contact =>{
         return (
           <ContactItem
             key={contact.id}
             id={contact.id}
             name={contact.name}
             last_name={contact.last_name}
+            company={contact.company}
           />
         );
       });
-    } else {
-      contacts = 1;
-    }
+
     return (
       <div>
         <div>

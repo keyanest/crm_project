@@ -10,9 +10,14 @@ class ContactItem extends Component {
       <div>
         <div>
           <div>
-          <ul>
-            <Link to={'/contacts/' + this.props.id}></Link>
-              <li>Name: {this.props.name}, {this.props.last_name}</li>
+            <ul>
+              <li>
+                Contact: &nbsp;
+                <Link to={'/contacts/' + this.props.id}>
+                  {this.props.name} {this.props.last_name}
+                </Link>
+                &nbsp; Company: {this.props.company}
+              </li>
             </ul>
           </div>
         </div>

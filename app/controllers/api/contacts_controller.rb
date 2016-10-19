@@ -1,7 +1,12 @@
 class Api::ContactsController < ApiController
   def index
     contacts = Contact.all
-    render json: { contacts: contacts }, status: :ok
+    render json: contacts
+  end
+
+  def show
+    contact = Contact.find(params[:id])
+    render json: contact
   end
 
   def create
@@ -23,6 +28,6 @@ class Api::ContactsController < ApiController
   private
 
   def contact_params
-    params.require(:contact).permit(:name, :last_name, :phone_number, :email, :company, :position, :deparment, :last_contact, :user_id)
+    params.require(:contact).permit(:name, :last_name, :phone_number, :email, :company, :position, :department, :last_contact, :user_id)
   end
 end
