@@ -9,8 +9,6 @@ class Contacts extends Component {
       contacts: []
     };
   }
-
-
   componentWillMount() {
     $.ajax({
       url: "api/contacts",
@@ -18,8 +16,6 @@ class Contacts extends Component {
       this.setState({ contacts: data })
     })
   }
-
-
   render () {
     let contacts = this.state.contacts.map(contact =>{
         return (
