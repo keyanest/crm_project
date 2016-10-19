@@ -8,13 +8,13 @@ class Contacts extends React.Component {
     super(props);
     this.state = {
       name: '',
-      lastName: '',
-      phoneNumber: '',
+      last_name: '',
+      phone_number: '',
       email: '',
       company: '',
       position: '',
       department: '',
-      lastContact: ''
+      last_contact: ''
     };
     this.handleContactFromSubmit = this.handleContactFromSubmit.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -29,10 +29,10 @@ class Contacts extends React.Component {
 
   handleContactFromSubmit(event) {
     event.preventDefault();
-    let newContactData = JSON.stringify( { name: this.state.name, last_name: this.state.lastName, phone_number: this.state.phoneNumber, email: this.state.email, company: this.state.company, position: this.state.position, department: this.state.department, last_contact: this.state.lastcontact } );
+    let newContactData = { contact: { name: this.state.name, last_name: this.state.last_name, phone_number: this.state.phone_number, email: this.state.email, company: this.state.company, position: this.state.position, department: this.state.department, last_contact: this.state.last_contact } }
     $.ajax({
       url: "api/contacts",
-      dataType: 'json',
+      dataType: 'application/json',
       type: 'POST',
       data: newContactData
     })
@@ -45,12 +45,12 @@ class Contacts extends React.Component {
 
   handleLastNameChange(event) {
     let newLastName = event.target.value;
-    this.setState({ lastName: newLastName });
+    this.setState({ last_name: newLastName });
   }
 
   handlePhoneNumberChange(event) {
     let newPhoneNumber = event.target.value;
-    this.setState({ phoneNumber: newPhoneNumber });
+    this.setState({ phone_number: newPhoneNumber });
   }
 
   handleEmailChange(event) {
@@ -75,7 +75,7 @@ class Contacts extends React.Component {
 
   handleLastContactChange(event) {
     let newLastContact = event.target.value;
-    this.setState({ lastContact: newLastContact });
+    this.setState({ last_contact: newLastContact });
   }
 
 

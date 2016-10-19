@@ -5,8 +5,8 @@ class Api::ContactsController < ApiController
   end
 
   def create
-    binding.pry
     contact = Contact.new(contact_params)
+    contact.user_id = current_user
     if contact.save
       render json: { contact: contact }, status: :created
     else
@@ -22,7 +22,7 @@ class Api::ContactsController < ApiController
 
   private
 
-  def contact
-    params.require(:contact).permit(:name, :last_name, :phone_number, :email, :company, :position, :deparment, :last_contact)
+  def contact_params
+    params.require(:contact).permit(:name, :last_name, :phone_number, :email, :company, :position, :deparment, :last_contact, :user_id)
   end
 end

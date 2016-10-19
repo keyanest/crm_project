@@ -17,7 +17,7 @@ const ContactForm = props => {
             <input
             type="text"
             placeholder="last name"
-            value={props.lastName}
+            value={props.last_name}
             onChange={props.handleLastNameChange}
             />
           </div>
@@ -25,7 +25,7 @@ const ContactForm = props => {
             <input
             type="text"
             placeholder="phone number"
-            value={props.phoneNumber}
+            value={props.phone_number}
             onChange={props.handlePhoneNumberChange}
             />
           </div>
@@ -65,7 +65,7 @@ const ContactForm = props => {
             <input
             type="text"
             placeholder="last contact"
-            value={props.lastContact}
+            value={props.last_contact}
             onChange={props.handleLastContactChange}
             />
           </div>
