@@ -2,6 +2,20 @@ import React from 'react';
 import ContactForm from './ContactForm';
 import { Link } from 'react-router';
 
+loadContactsFromServer() {
+  $.ajax({
+    url: "api/v1/contacts",
+    dataType: 'application/json',
+    type: 'GET',
+  }).done(data => {
+    this.setState({ contacts: data });
+    }
+}
+
+componentDidMount(
+  this.loadContactsFromServer();
+)
+
 
 class Contacts extends React.Component {
   constructor(props) {

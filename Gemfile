@@ -7,6 +7,7 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'jquery-rails'
 gem 'devise'
+gem 'active_model_serializers'
 group :development, :test do
   gem 'capybara'
   gem 'capybara-webkit'
