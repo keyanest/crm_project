@@ -12,7 +12,7 @@ class Home extends Component {
     return (
       <div>
       <ul>
-        <li><NavLink to="contacts">contacts</NavLink></li>
+        <li><NavLink to="contacts" activeStyle={{ color: 'orange' }}>contacts</NavLink></li>
       </ul>
       {this.props.children}
       </div>

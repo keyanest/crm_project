@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import ContactIndexItem from './ContactIndexItem'
+import ContactItem from './ContactItem'
 
 class Contacts extends Component {
   constructor(props) {
@@ -17,19 +17,14 @@ class Contacts extends Component {
     })
   }
   render () {
-    let contacts = this.state.contacts.map(contactIndexItem =>{
+    let contacts = this.state.contacts.map(contact =>{
         return (
-          <ContactIndexItem
-            key={contactIndexItem.id}
-            id={contactIndexItem.id}
-            name={contactIndexItem.name}
-            last_name={contactIndexItem.last_name}
-            phone_number={contactIndexItem.phone_number}
-            email={contactIndexItem.email}
-            company={contactIndexItem.company}
-            position={contactIndexItem.position}
-            department={contactIndexItem.department}
-            last_contact={contactIndexItem.last_contact}
+          <ContactItem
+            key={contact.id}
+            id={contact.id}
+            name={contact.name}
+            last_name={contact.last_name}
+            company={contact.company}
           />
         );
       });
