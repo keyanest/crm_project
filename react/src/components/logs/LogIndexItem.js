@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import ContactProfileItem from './ContactProfileItem'
+import LogProfileItem from './LogProfileItem'
 
-class ContactIndexItem extends Component {
+
+class LogIndexItem extends Component {
   constructor(props) {
     super(props);
   }
@@ -14,7 +15,7 @@ class ContactIndexItem extends Component {
             <ul>
               <li>
                 Contact: &nbsp;
-                <Link to={'/contacts/contactId'}>
+                <Link to={'/logs/logId'}>
                   {this.props.name} {this.props.last_name}
                 </Link>
                 &nbsp; Company: {this.props.company}
@@ -28,4 +29,4 @@ class ContactIndexItem extends Component {
   }
 }
 
-export default ContactIndexItem;
+export default LogIndexItem;
