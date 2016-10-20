@@ -21,7 +21,6 @@ class ContactProfileItem extends Component {
   }
 
   render() {
-
     let logLink = `/contacts/${this.state.contact.id}/logs`
     return (
       <div>

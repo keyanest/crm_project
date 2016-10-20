@@ -5,30 +5,28 @@ class TaskProfileItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      contact: []
+      task: []
     }
   }
-  //
-  // componentWillMount(){
-  //   let id = this.props.params.id
-  //   $.ajax({
-  //     url: "api/contacts/" + id,
-  //   }).done(data => {
-  //     this.setState({ contact: data })
-  //   })
-  // }
+
+  componentWillMount(){
+    let id = this.props.params.id
+    $.ajax({
+      url: "api/tasks/" + id,
+    }).done(data => {
+      this.setState({ task: data })
+    })
+  }
 
   render() {
-    let taskId = this.props.params.id
     return (
       <div>
-        <h2>{taskId}</h2>
         <div>
           <ul>
             <li>
-              Task: {this.state.name},&nbsp; {this.state.last_name}
-              Assigned: {this.state.phone_number}
-              Due: {this.state.email}
+              Task: {this.state.task.name}, &nbsp;
+              Assigned: {this.state.task.assign_date}, &nbsp;
+              Due: {this.state.task.due_date}
             </li>
           </ul>
         </div>

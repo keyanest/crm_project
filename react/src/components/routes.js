@@ -8,8 +8,6 @@ import Logs from './logs/Logs';
 import Tasks from './tasks/Tasks';
 import TaskProfileItem from './tasks/TaskProfileItem'
 
-
-
 module.exports = (
   <Route>
     <Route path="/" component={App}>
@@ -18,7 +16,7 @@ module.exports = (
       <Route path="/contacts/:id" component={ContactProfileItem}/>
       <Route path="/contacts/:id/logs" component={Logs}/>
       <Route path="/tasks" component={Tasks}/>
-      <Route path="/tasks/taskId" component={TaskProfileItem}/>
+      <Route path="/tasks/:id" component={TaskProfileItem}/>
     </Route>
   </Route>
 )
