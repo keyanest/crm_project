@@ -5,6 +5,9 @@ import Home from './Home'
 import Contacts from './contacts/Contacts';
 import ContactProfileItem from './contacts/ContactProfileItem';
 import Logs from './logs/Logs';
+import Tasks from './tasks/Tasks';
+import TaskProfileItem from './tasks/TaskProfileItem'
+
 
 
 module.exports = (
@@ -14,6 +17,8 @@ module.exports = (
       <Route path="/contacts" component={Contacts}/>
       <Route path="/contacts/:contactId" component={ContactProfileItem}/>
       <Route path="/logs" component={Logs}/>
+      <Route path="/tasks" component={Tasks}/>
+      <Route path="/tasks/taskId" component={TaskProfileItem}/>
     </Route>
   </Route>
 )
