@@ -4,7 +4,20 @@ import { Link } from 'react-router';
 class ContactProfileItem extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      contact: []
+    }
   }
+
+  componentWillMount(){
+    let id = this.props.params.id
+    $.ajax({
+      url: "api/contacts" + id,
+    }).done(data => {
+      this.setState({ contact: data })
+    })
+  }
+
   render() {
     let contactId = this.props.params.id
     return (
@@ -13,14 +26,14 @@ class ContactProfileItem extends Component {
         <div>
           <ul>
             <li>
-              Name: {this.props.name}
-              Last Name: {this.props.last_name}
-              Phone Number: {this.props.phone_number}
-              Email: {this.props.email}
-              Company: {this.props.company}
-              Position: {this.props.position}
-              Department: {this.props.department}
-              Last Contact: {this.props.last_contact}
+              Name: {this.state.name}
+              Last Name: {this.state.last_name}
+              Phone Number: {this.state.phone_number}
+              Email: {this.state.email}
+              Company: {this.state.company}
+              Position: {this.state.position}
+              Department: {this.state.department}
+              Last Contact: {this.state.last_contact}
             </li>
           </ul>
         </div>

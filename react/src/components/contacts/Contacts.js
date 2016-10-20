@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import ContactIndexItem from './ContactIndexItem'
+import ContactIndexItem from './ContactIndexItem';
+
 
 class Contacts extends Component {
   constructor(props) {
@@ -33,7 +34,6 @@ class Contacts extends Component {
           />
         );
       });
-
     return (
       <div>
         <div>

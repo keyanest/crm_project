@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-class ContactItem extends Component {
+class LogIndexItem extends Component {
   constructor(props) {
     super(props);
   }
@@ -12,11 +12,7 @@ class ContactItem extends Component {
           <div>
             <ul>
               <li>
-                Contact: &nbsp;
-                <Link to={'/contacts/' + this.props.id}>
-                  {this.props.name} {this.props.last_name}
-                </Link>
-                &nbsp; Company: {this.props.company}
+                Log: {this.props.name} Date: {this.props.log_date} Notes: {this.props.notes}
               </li>
             </ul>
           </div>
@@ -26,4 +22,4 @@ class ContactItem extends Component {
   }
 }
 
-export default ContactItem;
+export default LogIndexItem;
