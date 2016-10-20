@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :contacts, only: [:index, :show, :create, :destroy]
     resources :logs, only: [:index, :show, :create, :destroy]
-
+    resources :tasks, only: [:index, :show, :create, :destroy]
   end
 end

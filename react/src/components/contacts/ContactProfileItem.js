@@ -8,15 +8,15 @@ class ContactProfileItem extends Component {
       contact: []
     }
   }
-
-  componentWillMount(){
-    let id = this.props.params.id
-    $.ajax({
-      url: "api/contacts" + id,
-    }).done(data => {
-      this.setState({ contact: data })
-    })
-  }
+  // 
+  // componentWillMount(){
+  //   let id = this.props.params.id
+  //   $.ajax({
+  //     url: "api/contacts/" + id,
+  //   }).done(data => {
+  //     this.setState({ contact: data })
+  //   })
+  // }
 
   render() {
     let contactId = this.props.params.id

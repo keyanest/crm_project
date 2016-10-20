@@ -13,6 +13,8 @@ class App extends Component {
         <ul>
           <li><NavLink to="contacts">Contacts</NavLink></li>
           <li><NavLink to="logs">Logs</NavLink></li>
+          <li><NavLink to="tasks">Tasks</NavLink></li>
+
         </ul>
         {this.props.children || <Home/>}
       </div>
