@@ -11,9 +11,9 @@ class Logs extends Component {
   }
   componentWillMount() {
     $.ajax({
-      url: "api/logs",
+      url: `api/contacts/${this.props.params.id}`,
     }).done(data => {
-      this.setState({ logs: data })
+      this.setState({ logs: data.logs })
     })
   }
   render () {

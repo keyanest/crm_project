@@ -1,39 +1,42 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import Logs from '../logs/Logs'
 
 class ContactProfileItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      contact: []
+      contact: [],
+      logs: []
     }
   }
-  // 
-  // componentWillMount(){
-  //   let id = this.props.params.id
-  //   $.ajax({
-  //     url: "api/contacts/" + id,
-  //   }).done(data => {
-  //     this.setState({ contact: data })
-  //   })
-  // }
+
+  componentWillMount(){
+    let id = this.props.params.id
+    $.ajax({
+      url: "api/contacts/" + id,
+    }).done(data => {
+      this.setState({ contact: data.contact, logs: data.logs })
+    })
+  }
 
   render() {
-    let contactId = this.props.params.id
+
+    let logLink = `/contacts/${this.state.contact.id}/logs`
     return (
       <div>
-        <h2>{contactId}</h2>
         <div>
           <ul>
             <li>
-              Name: {this.state.name}
-              Last Name: {this.state.last_name}
-              Phone Number: {this.state.phone_number}
-              Email: {this.state.email}
-              Company: {this.state.company}
-              Position: {this.state.position}
-              Department: {this.state.department}
-              Last Contact: {this.state.last_contact}
+              Name: {this.state.contact.name} &nbsp;
+              Last Name: {this.state.contact.last_name} &nbsp;
+              Phone Number: {this.state.contact.phone_number} &nbsp;
+              Email: {this.state.contact.email} &nbsp;
+              Company: {this.state.contact.company} &nbsp;
+              Position: {this.state.contact.position} &nbsp;
+              Department: {this.state.contact.department} &nbsp;
+              Last Contact: {this.state.contact.last_contact} &nbsp;
+              <Link to={logLink}>Logs</Link>
             </li>
           </ul>
         </div>

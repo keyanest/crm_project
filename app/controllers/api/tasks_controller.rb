@@ -1,6 +1,6 @@
 class Api::TasksController < ApiController
   def index
-    tasks = Task.all
+    tasks = current_user.tasks
     render json: tasks
   end
 

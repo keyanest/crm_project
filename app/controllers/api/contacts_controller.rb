@@ -1,29 +1,16 @@
 class Api::ContactsController < ApiController
   def index
-    contacts = Contact.all
+    contacts = current_user.contacts
     render json: contacts
   end
 
   def show
     contact = Contact.find(params[:id])
-    render json: contact, contact.log
+    logs = contact.logs
+    render json: { contact: contact, logs: logs }
+
   end
 
-  def create
-    contact = Contact.new(contact_params)
-    contact.user_id = current_user
-    if contact.save
-      render json: { contact: contact }, status: :created
-    else
-      render json: { errors: contact.errors }, status: :unprocessable_entity
-    end
-  end
-
-  def destroy
-    contact = Contact.find(params[:id])
-    contact.destroy
-    head :no_content
-  end
 
   private
 

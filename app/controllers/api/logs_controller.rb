@@ -1,6 +1,8 @@
 class Api::LogsController < ApiController
+
   def index
-    logs = Log.all
+    binding.pry
+    logs = Log.where(contact_id: params[:id])
     render json: logs
   end
 

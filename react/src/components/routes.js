@@ -15,8 +15,8 @@ module.exports = (
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
       <Route path="/contacts" component={Contacts}/>
-      <Route path="/contacts/:contactId" component={ContactProfileItem}/>
-      <Route path="/logs" component={Logs}/>
+      <Route path="/contacts/:id" component={ContactProfileItem}/>
+      <Route path="/contacts/:id/logs" component={Logs}/>
       <Route path="/tasks" component={Tasks}/>
       <Route path="/tasks/taskId" component={TaskProfileItem}/>
     </Route>
