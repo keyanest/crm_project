@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import LogProfileItem from './LogProfileItem'
-
 
 class LogIndexItem extends Component {
   constructor(props) {
@@ -14,14 +12,9 @@ class LogIndexItem extends Component {
           <div>
             <ul>
               <li>
-                Contact: &nbsp;
-                <Link to={'/logs/logId'}>
-                  {this.props.name} {this.props.last_name}
-                </Link>
-                &nbsp; Company: {this.props.company}
+                Log: {this.props.name} Date: {this.props.log_date} Notes: {this.props.notes}
               </li>
             </ul>
-            {this.props.children}
           </div>
         </div>
       </div>

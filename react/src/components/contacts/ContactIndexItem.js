@@ -20,7 +20,6 @@ class ContactIndexItem extends Component {
                 &nbsp; Company: {this.props.company}
               </li>
             </ul>
-            {this.props.children}
           </div>
         </div>
       </div>
