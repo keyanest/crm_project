@@ -8,7 +8,17 @@ class Api::ContactsController < ApiController
     contact = Contact.find(params[:id])
     logs = contact.logs
     render json: { contact: contact, logs: logs }
+  end
 
+  def create
+    contact = Contact.new(contact_params)
+    contact.user = current_user
+    if contact.save
+      render json: contact, status: :ok
+    else
+      fullerror = "Please complete form correctly."
+      render json: fullerror
+    end
   end
 
 
