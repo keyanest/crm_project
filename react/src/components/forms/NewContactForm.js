@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter, RouterContext, Router } from 'react-router';
-import { push } from 'react-router-redux';
+import { Link, withRouter } from 'react-router';
 
 class NewContactForm extends Component {
   constructor(props) {

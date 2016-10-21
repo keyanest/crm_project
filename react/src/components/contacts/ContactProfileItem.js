@@ -20,6 +20,15 @@ class ContactProfileItem extends Component {
     })
   }
 
+  deleteContact() {
+    $.ajax({
+      url: "/api/contacts/" + this.props.params.id,
+      type: "DELETE"
+    }).done(date => {
+      this.props.history.pushState(null, ("/contacts/"));
+    })
+  }
+
   render() {
     let logLink = `/contacts/${this.state.contact.id}/logs`
     let editLink = `/contacts/${this.state.contact.id}/edit`

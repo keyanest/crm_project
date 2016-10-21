@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link, withRouter, RouterContext, Router } from 'react-router';
-import { push } from 'react-router-redux';
 
 class EditContactForm extends Component {
   constructor(props) {
@@ -16,8 +15,9 @@ class EditContactForm extends Component {
       last_contact: '',
       errors: ''
     };
-    // this.handleContactFromSubmit = this.handleContactFromSubmit.bind(this);
-    // this.handleChange = this.handleChange.bind(this);
+    this.handleContactFromSubmit = this.handleContactFromSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.deleteContact = this.deleteContact.bind(this);
   }
 
   contextTypes: {
@@ -30,39 +30,59 @@ class EditContactForm extends Component {
      url: "api/contacts/" + id + "/edit",
    }).done(data => {
      this.setState({
-       name: this.state.name,
-       last_name: this.state.last_name,
-       phone_number: this.state.phone_number,
-       email: this.state.email,
-       company: this.state.company,
-       position: this.state.position,
-       department: this.state.department,
-       last_contact: this.state.last_contact
+       name: data.name,
+       last_name: data.last_name,
+       phone_number: data.phone_number,
+       email: data.email,
+       company: data.company,
+       position: data.position,
+       department: data.department,
+       last_contact: data.last_contact
      })
    })
  }
- //
- //  handleContactFromSubmit(event) {
- //   event.preventDefault();
- //   let newContactData = { contact: { name: this.state.name, last_name: this.state.last_name, phone_number: this.state.phone_number, email: this.state.email, company: this.state.company, position: this.state.position, department: this.state.department, last_contact: this.state.last_contact } }
- //   $.ajax({
- //     url: "api/contacts",
- //     type: 'POST',
- //     data: newContactData,
- //   }).done(data => {
- //     if (data.errors) {
- //       this.setState({ errors: data.fullerror });
- //     } else {
- //       this.props.history.pushState(null, '/contacts');
- //     }
- //   });
- // }
- //
- // handleChange(event) {
- //    let nextState = {};
- //    nextState[event.target.name] = event.target.value;
- //    this.setState(nextState);
- //  }
+
+  handleContactFromSubmit(event) {
+   event.preventDefault();
+   let id = this.props.params.id
+   let updateContactData = {
+      contact: {
+        name: this.state.name,
+        last_name: this.state.last_name,
+        phone_number: this.state.phone_number,
+        email: this.state.email,
+        company: this.state.company,
+        position: this.state.position,
+        department: this.state.department,
+        last_contact: this.state.last_contact
+      }}
+   $.ajax({
+     url: "api/contacts/" + id,
+     type: 'PATCH',
+     data: updateContactData,
+   }).done(data => {
+     if (data.errors) {
+       this.setState({ errors: data.fullerror });
+     } else {
+       this.props.history.pushState(null, ("/contacts/" + id));
+     }
+   });
+ }
+
+ handleChange(event) {
+    let nextState = {};
+    nextState[event.target.name] = event.target.value;
+    this.setState(nextState);
+  }
+
+  deleteContact() {
+    $.ajax({
+      url: "/api/contacts/" + this.props.params.id,
+      type: "DELETE"
+    }).done(date => {
+      this.props.history.pushState(null, ("/contacts/"));
+    })
+  }
 
   render() {
     return(
@@ -76,7 +96,7 @@ class EditContactForm extends Component {
               type="text"
               placeholder="first name"
               name="name"
-              value={this.name}
+              value={this.state.name}
               onChange={this.handleChange}
               />
             </div>
@@ -85,7 +105,7 @@ class EditContactForm extends Component {
               type="text"
               placeholder="last name"
               name="last_name"
-              value={this.last_name}
+              value={this.state.last_name}
               onChange={this.handleChange}
               />
             </div>
@@ -94,7 +114,7 @@ class EditContactForm extends Component {
               type="text"
               placeholder="phone number"
               name="phone_number"
-              value={this.phone_number}
+              value={this.state.phone_number}
               onChange={this.handleChange}
               />
             </div>
@@ -103,7 +123,7 @@ class EditContactForm extends Component {
               type="text"
               placeholder="email"
               name="email"
-              value={this.email}
+              value={this.state.email}
               onChange={this.handleChange}
               />
             </div>
@@ -112,7 +132,7 @@ class EditContactForm extends Component {
               type="text"
               placeholder="company"
               name="company"
-              value={this.company}
+              value={this.state.company}
               onChange={this.handleChange}
               />
             </div>
@@ -121,7 +141,7 @@ class EditContactForm extends Component {
               type="text"
               placeholder="position"
               name="position"
-              value={this.position}
+              value={this.state.position}
               onChange={this.handleChange}
               />
             </div>
@@ -130,7 +150,7 @@ class EditContactForm extends Component {
               type="text"
               placeholder="department"
               name="department"
-              value={this.department}
+              value={this.state.department}
               onChange={this.handleChange}
               />
             </div>
@@ -139,15 +159,21 @@ class EditContactForm extends Component {
               type="text"
               placeholder="last contact"
               name="last_contact"
-              value={this.last_contact}
+              value={this.state.last_contact}
               onChange={this.handleChange}
               />
             </div>
               <div>
-                <input type="submit" className="button" value="Add" />
+                <input type="submit" className="button" value="Update" />
+              </div>
+              <br/>
+              <div>
+                <Link to={'/contacts/' + this.props.params.id}>Cancel</Link>
               </div>
           </form>
         </div>
+        <br/>
+        <button type="submit" onClick={() => {this.deleteContact()}}>Delete</button>
       </div>
     );
   }
