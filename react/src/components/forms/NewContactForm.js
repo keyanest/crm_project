@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Link, hashHistory, browserHistory, withRouter, RouterContext, Router } from 'react-router';
+import { Link, browserHistory, withRouter, RouterContext, Router } from 'react-router';
+import { push } from 'react-router-redux';
 
 class NewContactForm extends Component {
-  constructor(props, context) {
+  constructor(props) {
     super(props);
-    context.router;
     this.state = {
       name: '',
       last_name: '',
@@ -21,7 +21,7 @@ class NewContactForm extends Component {
   }
 
   contextTypes: {
-    router: React.PropTypes.func.isRequired
+    history: React.PropTypes.func.isRequired
  };
 
   handleContactFromSubmit(event) {
@@ -35,7 +35,7 @@ class NewContactForm extends Component {
      if (data.errors) {
        this.setState({ errors: data.fullerror });
      } else {
-       this.props.router.push('/contacts')
+       this.props.history.pushState(null, '/contacts');
      }
    });
  }
@@ -47,8 +47,10 @@ class NewContactForm extends Component {
   }
 
   render() {
+    debugger;
     return(
       <div>
+      <h1>{this.state.fullerror}</h1>
         <div>
           <form onSubmit={this.handleContactFromSubmit}>
             <div>
