@@ -25,6 +25,8 @@ class Logs extends Component {
             name={logIndexItem.name}
             log_date={logIndexItem.log_date}
             notes={logIndexItem.notes}
+            contactId={this.props.params.id}
+            history={this.props.history}
           />
         );
       });
@@ -37,6 +39,7 @@ class Logs extends Component {
         </div>
         <div>
           {logs}
+          <Link to={`/contacts/${this.props.params.id}/logs/new`}>New Log</Link>
         </div>
       </div>
     );

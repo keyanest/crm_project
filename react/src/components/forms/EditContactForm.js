@@ -79,7 +79,7 @@ class EditContactForm extends Component {
     $.ajax({
       url: "/api/contacts/" + this.props.params.id,
       type: "DELETE"
-    }).done(date => {
+    }).done(data => {
       this.props.history.pushState(null, ("/contacts/"));
     })
   }

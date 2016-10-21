@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter, RouterContext, Router } from 'react-router';
 
 class LogIndexItem extends Component {
   constructor(props) {
     super(props);
+    this.deleteLog  = this.deleteLog.bind(this);
   }
+
+  contextTypes: {
+    history: React.PropTypes.func.isRequired
+ };
+
+  deleteLog() {
+    $.ajax({
+      url: "/api/contacts/" + this.props.contactId + "/logs/" + this.props.id,
+      type: "DELETE"
+    }).done(data => {
+      this.props.history.pushState(null, ("/contacts/" + this.props.contactId ));
+    })
+  }
+
+
   render() {
     return (
       <div>
@@ -16,6 +32,7 @@ class LogIndexItem extends Component {
               </li>
             </ul>
           </div>
+          <button type="submit" onClick={() => {this.deleteLog()}}>Delete</button>
         </div>
       </div>
     )
