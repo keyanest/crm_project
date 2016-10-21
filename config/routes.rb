@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
   resources :users
   namespace :api do
-    resources :contacts, only: [:index, :show, :create, :destroy] do
-      resources :logs, only: [:index, :show, :create, :destroy]
+    resources :contacts do
+      resources :logs
     end
-    resources :tasks, only: [:index, :show, :create, :destroy]
+    resources :tasks
   end
 end

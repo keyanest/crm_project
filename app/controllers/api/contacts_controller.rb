@@ -21,6 +21,20 @@ class Api::ContactsController < ApiController
     end
   end
 
+  def edit
+    contact = Contact.find(params[:id])
+    render json: contact, status: :ok
+  end
+
+  def update
+    contact = Contact.find(params[:id])
+    if contact.update(contact_params)
+      render json: contact, status: :ok
+    else
+      fullerror = "Please complete form correctly."
+      render json: fullerror
+    end
+  end
 
   private
 

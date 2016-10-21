@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter, RouterContext, Router } from 'react-router';
 import { push } from 'react-router-redux';
 
-class NewContactForm extends Component {
+class EditContactForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,18 +16,20 @@ class NewContactForm extends Component {
       last_contact: '',
       errors: ''
     };
-    this.handleContactFromSubmit = this.handleContactFromSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    // this.handleContactFromSubmit = this.handleContactFromSubmit.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
   }
 
   contextTypes: {
     history: React.PropTypes.func.isRequired
  };
 
-  handleContactFromSubmit(event) {
-   event.preventDefault();
-   let newContactData = {
-     contact: {
+ componentWillMount(){
+   let id = this.props.params.id
+   $.ajax({
+     url: "api/contacts/" + id + "/edit",
+   }).done(data => {
+     this.setState({
        name: this.state.name,
        last_name: this.state.last_name,
        phone_number: this.state.phone_number,
@@ -36,30 +38,36 @@ class NewContactForm extends Component {
        position: this.state.position,
        department: this.state.department,
        last_contact: this.state.last_contact
-     }}
-   $.ajax({
-     url: "api/contacts",
-     type: 'POST',
-     data: newContactData,
-   }).done(data => {
-     if (data.errors) {
-       this.setState({ errors: data.fullerror });
-     } else {
-       this.props.history.pushState(null, '/contacts');
-     }
-   });
+     })
+   })
  }
-
- handleChange(event) {
-    let nextState = {};
-    nextState[event.target.name] = event.target.value;
-    this.setState(nextState);
-  }
+ //
+ //  handleContactFromSubmit(event) {
+ //   event.preventDefault();
+ //   let newContactData = { contact: { name: this.state.name, last_name: this.state.last_name, phone_number: this.state.phone_number, email: this.state.email, company: this.state.company, position: this.state.position, department: this.state.department, last_contact: this.state.last_contact } }
+ //   $.ajax({
+ //     url: "api/contacts",
+ //     type: 'POST',
+ //     data: newContactData,
+ //   }).done(data => {
+ //     if (data.errors) {
+ //       this.setState({ errors: data.fullerror });
+ //     } else {
+ //       this.props.history.pushState(null, '/contacts');
+ //     }
+ //   });
+ // }
+ //
+ // handleChange(event) {
+ //    let nextState = {};
+ //    nextState[event.target.name] = event.target.value;
+ //    this.setState(nextState);
+ //  }
 
   render() {
     return(
       <div>
-      <h1>New Contact</h1>
+      <h1>Edit Contact</h1>
       <h1>{this.state.fullerror}</h1>
         <div>
           <form onSubmit={this.handleContactFromSubmit}>
@@ -145,4 +153,4 @@ class NewContactForm extends Component {
   }
 };
 
-export default NewContactForm;
+export default EditContactForm;

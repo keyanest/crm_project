@@ -22,6 +22,7 @@ class ContactProfileItem extends Component {
 
   render() {
     let logLink = `/contacts/${this.state.contact.id}/logs`
+    let editLink = `/contacts/${this.state.contact.id}/edit`
     return (
       <div>
         <div>
@@ -35,7 +36,8 @@ class ContactProfileItem extends Component {
               Position: {this.state.contact.position} &nbsp;
               Department: {this.state.contact.department} &nbsp;
               Last Contact: {this.state.contact.last_contact} &nbsp;
-              <Link to={logLink}>Logs</Link>
+              <Link to={logLink}>Logs</Link> &nbsp;
+              <Link to={editLink}>Edit Contact</Link>
             </li>
           </ul>
         </div>
