@@ -8,6 +8,7 @@ class TaskIndexItem extends Component {
     super(props);
   }
   render() {
+    let taskId = `/tasks/${this.props.id}`
     return (
       <div>
         <div>
@@ -15,7 +16,7 @@ class TaskIndexItem extends Component {
             <ul>
               <li>
                 Task: &nbsp;
-                <Link to={'/tasks/taskId'}>
+                <Link to={taskId}>
                 {this.props.name}
                 </Link>
                 , {this.props.body} Assigned: {this.props.assign_date} Due: {this.props.due_date}

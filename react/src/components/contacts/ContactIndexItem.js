@@ -7,6 +7,7 @@ class ContactIndexItem extends Component {
     super(props);
   }
   render() {
+    let contactId = `/contacts/${this.props.id}`
     return (
       <div>
         <div>
@@ -14,7 +15,7 @@ class ContactIndexItem extends Component {
             <ul>
               <li>
                 Contact: &nbsp;
-                <Link to={'/contacts/contactId'}>
+                <Link to={contactId}>
                   {this.props.name} {this.props.last_name}
                 </Link>
                 &nbsp; Company: {this.props.company}

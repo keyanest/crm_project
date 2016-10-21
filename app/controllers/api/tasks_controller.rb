@@ -1,6 +1,6 @@
 class Api::TasksController < ApiController
   def index
-    tasks = Task.all
+    tasks = current_user.tasks.order!(created_at: :desc)
     render json: tasks
   end
 

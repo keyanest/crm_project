@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import ContactIndexItem from './ContactIndexItem';
-
+import NewContactForm from '../forms/NewContactForm';
 
 class Contacts extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      contacts: []
+      contacts: [],
     };
   }
+
   componentWillMount() {
     $.ajax({
       url: "api/contacts",
@@ -17,7 +18,9 @@ class Contacts extends Component {
       this.setState({ contacts: data })
     })
   }
+
   render () {
+    let error = this.state.fullerror
     let contacts = this.state.contacts.map(contactIndexItem =>{
         return (
           <ContactIndexItem
@@ -40,6 +43,7 @@ class Contacts extends Component {
           <h1>Contacts</h1>
         </div>
         <div>
+          <Link to={"contacts/new"}>New Contact</Link>
         </div>
         <div>
           {contacts}
