@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router';
+import Search from 'react-search';
 
 class NewTaskForm extends Component {
   constructor(props) {
@@ -7,15 +8,34 @@ class NewTaskForm extends Component {
     this.state = {
       name: '',
       body: '',
-      due_date: ''
+      due_date: '',
+      contact: "",
+      contactSuggestions: []
     };
     this.handleContactFromSubmit = this.handleContactFromSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.onKeyChange = this.onKeyChange.bind(this);
   }
 
   contextTypes: {
     history: React.PropTypes.func.isRequired
  };
+
+ componentWillMount() {
+   let obj = {};
+   let arr = [];
+   $.ajax({
+     url: "api/contacts"
+   }).done(data => {
+     for (var i = 0; i < data.length; i++) {
+      obj = {id: data[i].id, value: `${data[i].name} ${data[i].last_name}`}
+      arr.push(obj)
+     }
+     this.setState({
+       contactSuggestions: arr
+     })
+   });
+ }
 
   handleContactFromSubmit(event) {
    event.preventDefault();
@@ -24,8 +44,8 @@ class NewTaskForm extends Component {
        name: this.state.name,
        body: this.state.body,
        due_date: this.state.due_date,
+       contact: this.state.contact,
      }}
-     debugger
    $.ajax({
      url: "api/tasks",
      type: 'POST',
@@ -43,6 +63,10 @@ class NewTaskForm extends Component {
     let nextState = {};
     nextState[event.target.name] = event.target.value;
     this.setState(nextState);
+  }
+
+  onKeyChange(event) {
+    this.setState({ contact: event})
   }
 
   render() {
@@ -70,15 +94,11 @@ class NewTaskForm extends Component {
               onChange={this.handleChange}
               />
             </div>
-            <div>
-              <input
-              type="text"
-              placeholder="Due Date"
-              name="due_date"
-              value={this.due_date}
-              onChange={this.handleChange}
-              />
-            </div>
+            <Search
+              items={this.state.contactSuggestions}
+              placeholder='Choose Contact'
+              onKeyChange={this.onKeyChange}
+            />
             <div>
               <input type="submit" className="button" value="Add" />
             </div>

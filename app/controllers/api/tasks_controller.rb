@@ -10,10 +10,18 @@ class Api::TasksController < ApiController
   end
 
   def create
-    binding.pry
-    task = Task.new(task_params)
+    contacts = current_user.contacts
+    contact = task_params[:contact].split(" ")
+    contact_id = nil
+    contacts.each do |c|
+      if c.name == contact[0] && c.last_name == contact[1]
+        contact_id = c.id
+      end
+    end
+    task = Task.new(name: task_params[:name], body: task_params[:body], due_date: task_params[:due_date], contact_id: contact_id )
     task.assign_date = Date.today
     task.user = current_user
+binding.pry
 
 
   end
@@ -21,6 +29,6 @@ class Api::TasksController < ApiController
   private
 
   def task_params
-    params.require(:task).permit(:name, :body, :due_date)
+    params.require(:task).permit(:name, :body, :due_date, :contact)
   end
 end
