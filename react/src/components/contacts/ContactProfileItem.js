@@ -24,6 +24,7 @@ class ContactProfileItem extends Component {
   render() {
     let logLink = `/contacts/${this.state.contact.id}/logs`
     let editLink = `/contacts/${this.state.contact.id}/edit`
+    let newTaskLink = `/tasks/new`
     return (
       <div>
         <div>
@@ -38,7 +39,8 @@ class ContactProfileItem extends Component {
               Department: {this.state.contact.department} &nbsp;
               Last Contact: {this.state.contact.last_contact} &nbsp;
               <Link to={logLink}>Logs</Link> &nbsp;
-              <Link to={editLink}>Edit Contact</Link>
+              <Link to={editLink}>Edit Contact</Link> &nbsp;
+              <Link to={newTaskLink}>New Task</Link>
             </li>
           </ul>
         </div>
