@@ -10,6 +10,8 @@ import TaskProfileItem from './tasks/TaskProfileItem'
 import NewContactForm from './forms/NewContactForm';
 import EditContactForm from './forms/EditContactForm';
 import NewLogForm from './forms/NewLogForm';
+import NewTaskForm from './forms/NewTaskForm';
+
 
 
 module.exports = (
@@ -23,6 +25,7 @@ module.exports = (
       <Route path="/contacts/:id/logs" component={Logs}/>
       <Route path="/contacts/:id/logs/new" component={NewLogForm}/>
       <Route path="/tasks" component={Tasks}/>
+      <Route path="/tasks/new" component={NewTaskForm}/>
       <Route path="/tasks/:id" component={TaskProfileItem}/>
     </Route>
   </Route>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import TaskIndexItem from './TaskIndexItem';
+import NewTaskForm from '../forms/NewTaskForm';
 
 class Tasks extends Component {
   constructor(props) {
@@ -36,6 +37,7 @@ class Tasks extends Component {
           <h1>Tasks</h1>
         </div>
         <div>
+        <Link to={"/tasks/new"}>New Task</Link>
         </div>
         <div>
           {tasks}

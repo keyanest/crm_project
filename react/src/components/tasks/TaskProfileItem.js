@@ -19,12 +19,13 @@ class TaskProfileItem extends Component {
   }
 
   render() {
+    debugger
     return (
       <div>
         <div>
           <ul>
             <li>
-              Task: {this.state.task.name}, &nbsp;
+              Task: {this.state.task.name}, &nbsp; Hello
               Assigned: {this.state.task.assign_date}, &nbsp;
               Due: {this.state.task.due_date}
             </li>
