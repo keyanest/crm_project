@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Logs from '../logs/Logs'
+import { Grid, Row, Col } from 'react-bootstrap';
+
 
 class ContactProfileItem extends Component {
   constructor(props) {
@@ -26,25 +28,23 @@ class ContactProfileItem extends Component {
     let editLink = `/contacts/${this.state.contact.id}/edit`
     let newTaskLink = `/tasks/new`
     return (
-      <div>
-        <div>
-          <ul>
-            <li>
-              Name: {this.state.contact.name} &nbsp;
-              Last Name: {this.state.contact.last_name} &nbsp;
-              Phone Number: {this.state.contact.phone_number} &nbsp;
-              Email: {this.state.contact.email} &nbsp;
-              Company: {this.state.contact.company} &nbsp;
-              Position: {this.state.contact.position} &nbsp;
-              Department: {this.state.contact.department} &nbsp;
-              Last Contact: {this.state.contact.last_contact} &nbsp;
-              <Link to={logLink}>Logs</Link> &nbsp;
-              <Link to={editLink}>Edit Contact</Link> &nbsp;
-              <Link to={newTaskLink}>New Task</Link>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <Grid>
+        <Row>
+          <Col xs={6} md={4}>
+                Name: {this.state.contact.name} <br />
+                Last Name: {this.state.contact.last_name} <br />
+                Phone Number: {this.state.contact.phone_number} <br />
+                Email: {this.state.contact.email} <br />
+                Company: {this.state.contact.company} <br />
+                Position: {this.state.contact.position} <br />
+                Department: {this.state.contact.department} <br />
+                Last Contact: {this.state.contact.last_contact} <br />
+                <Link to={logLink}>Logs</Link> &nbsp;
+                <Link to={editLink}>Edit Contact</Link> &nbsp;
+                <Link to={newTaskLink}>New Task</Link>
+          </Col>
+        </Row>
+      </Grid>
     )
   }
 }

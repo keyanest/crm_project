@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import ContactProfileItem from './ContactProfileItem'
+import ContactProfileItem from './ContactProfileItem';
+import { Row, Col } from 'react-bootstrap';
 
 class ContactIndexItem extends Component {
   constructor(props) {
@@ -9,9 +10,8 @@ class ContactIndexItem extends Component {
   render() {
     let contactId = `/contacts/${this.props.id}`
     return (
-      <div>
-        <div>
-          <div>
+        <Row>
+          <Col xs={6} md={4}>
             <ul>
               <li>
                 Contact: &nbsp;
@@ -21,9 +21,8 @@ class ContactIndexItem extends Component {
                 &nbsp; Company: {this.props.company}
               </li>
             </ul>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
     )
   }
 }

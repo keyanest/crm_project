@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import ContactIndexItem from './ContactIndexItem';
 import NewContactForm from '../forms/NewContactForm';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 class Contacts extends Component {
   constructor(props) {
@@ -38,17 +39,16 @@ class Contacts extends Component {
         );
       });
     return (
-      <div>
-        <div>
-          <h1>Contacts</h1>
-        </div>
-        <div>
-          <Link to={"contacts/new"}>New Contact</Link>
-        </div>
+      <Grid>
+        <Row>
+          <div className="text-center">
+            <h3>Contacts</h3>
+          </div>
+        </Row>
         <div>
           {contacts}
         </div>
-      </div>
+      </Grid>
     );
   }
 };

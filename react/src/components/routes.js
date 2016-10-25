@@ -13,6 +13,9 @@ import NewLogForm from './forms/NewLogForm';
 import NewTaskForm from './forms/NewTaskForm';
 import EditTaskForm from './forms/EditTaskForm';
 import CompletedTasks from './tasks/CompletedTasks';
+import AppContact from './AppContact'
+import About from './About'
+
 
 
 
@@ -20,6 +23,8 @@ module.exports = (
   <Route>
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
+      <Route path="/about" component={About}/>
+      <Route path="/contact" component={AppContact}/>
       <Route path="/contacts" component={Contacts}/>
       <Route path="/contacts/new" component={NewContactForm}/>
       <Route path="/contacts/:id/edit" component={EditContactForm}/>

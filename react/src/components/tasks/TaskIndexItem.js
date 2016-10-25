@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import TaskProfileItem from './TaskProfileItem'
-
+import TaskProfileItem from './TaskProfileItem';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 class TaskIndexItem extends Component {
   constructor(props) {
@@ -10,9 +10,9 @@ class TaskIndexItem extends Component {
   render() {
     let taskId = `/tasks/${this.props.id}`
     return (
-      <div>
-        <div>
-          <div>
+      <Grid>
+        <Row>
+          <Col xs={12} md={8}>
             <ul>
               <li>
                 Task: &nbsp;
@@ -22,9 +22,9 @@ class TaskIndexItem extends Component {
                 , {this.props.body} Assigned: {this.props.assign_date} Due: {this.props.due_date}
               </li>
             </ul>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Grid>
     )
   }
 }

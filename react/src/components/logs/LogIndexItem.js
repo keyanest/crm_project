@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter, RouterContext, Router } from 'react-router';
+import { Grid, Row, Col } from 'react-bootstrap';
+
 
 class LogIndexItem extends Component {
   constructor(props) {
@@ -23,18 +25,14 @@ class LogIndexItem extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <div>
-            <ul>
-              <li>
-                Log: {this.props.name} Date: {this.props.log_date} Notes: {this.props.notes} &nbsp;
-                <button type="submit" onClick={() => {this.deleteLog()}}>Delete</button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <Grid>
+        <Row>
+          <Col xs={12} md={8}>
+            Log: {this.props.name} Date: {this.props.log_date} Notes: {this.props.notes} &nbsp;
+            <button type="submit" onClick={() => {this.deleteLog()}}>Delete</button>
+          </Col>
+        </Row>
+      </Grid>
     )
   }
 }
