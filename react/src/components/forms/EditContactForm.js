@@ -88,7 +88,7 @@ class EditContactForm extends Component {
     return(
       <div>
       <h1>Edit Contact</h1>
-      <h1>{this.state.fullerror}</h1>
+      <h1>{this.state.errors}</h1>
         <div>
           <form onSubmit={this.handleContactFromSubmit}>
             <div>

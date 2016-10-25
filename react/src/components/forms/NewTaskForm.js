@@ -11,7 +11,8 @@ class NewTaskForm extends Component {
       due_date: '',
       send_email: false,
       contact: '',
-      contactSuggestions: []
+      contactSuggestions: [],
+      errors: ''
     };
     this.handleContactFromSubmit = this.handleContactFromSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -75,7 +76,7 @@ class NewTaskForm extends Component {
     return(
       <div>
       <h1>New Task</h1>
-      <h1>{this.state.fullerror}</h1>
+      <h1>{this.state.errors}</h1>
         <div>
           <form onSubmit={this.handleContactFromSubmit}>
             <div>

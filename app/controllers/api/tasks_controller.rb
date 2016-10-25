@@ -1,4 +1,5 @@
 class Api::TasksController < ApiController
+  
   def index
     tasks = current_user.tasks.order!(created_at: :desc)
     render json: tasks
@@ -11,7 +12,6 @@ class Api::TasksController < ApiController
   end
 
   def create
-    binding.pry
     contacts = current_user.contacts
     contact = task_params[:contact].split(" ")
     contact_id = nil
