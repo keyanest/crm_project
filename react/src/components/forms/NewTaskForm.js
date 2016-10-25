@@ -57,7 +57,7 @@ class NewTaskForm extends Component {
      if (data.fullerror) {
        this.setState({ errors: data.fullerror });
      } else {
-       this.props.history.pushState(null, '/tasks');
+       this.props.history.pushState(null, `tasks/${data.id}`);
      }
    });
  }

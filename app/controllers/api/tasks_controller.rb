@@ -1,7 +1,13 @@
 class Api::TasksController < ApiController
-  
+
   def index
-    tasks = current_user.tasks.order!(created_at: :desc)
+    tasks = []
+    arr = current_user.tasks.order!(created_at: :desc)
+    arr.each do |t|
+      if t.completed == false
+        tasks << t
+      end
+    end
     render json: tasks
   end
 
@@ -34,9 +40,22 @@ class Api::TasksController < ApiController
     end
   end
 
+  def update
+    task = Task.find(params[:id])
+    task.update_attributes(task_params)
+    render json: task, status: :ok
+  end
+
+  def destroy
+    task = Task.find(params[:id])
+    tasks = current_user.tasks
+    task.destroy
+    render json: tasks
+  end
+
   private
 
   def task_params
-    params.require(:task).permit(:name, :body, :due_date, :contact, :send_email)
+    params.require(:task).permit(:name, :body, :due_date, :contact, :send_email, :completed)
   end
 end
