@@ -53,7 +53,7 @@ class NewTaskForm extends Component {
      type: 'POST',
      data: newTaskData,
    }).done(data => {
-     if (data.errors) {
+     if (data.fullerror) {
        this.setState({ errors: data.fullerror });
      } else {
        this.props.history.pushState(null, '/tasks');
@@ -96,33 +96,40 @@ class NewTaskForm extends Component {
               onChange={this.handleChange}
               />
             </div>
+            <div>
+              <input
+                type="date"
+                placeholder="Due Date"
+                name="due_date"
+                value={this.state.due_date}
+                onChange={this.handleChange}
+              />
+            </div>
             <Search
               items={this.state.contactSuggestions}
               placeholder='Choose Contact'
               onKeyChange={this.onKeyChange}
             />
             <div>
-              <form>
-                <label>
-                  <input
-                  type="radio"
-                  name="send_email"
-                  value={true}
-                  onChange={this.handleChange}
-                  />
-                  Send Reminder
-                </label>
-                <br/>
-                <label>
-                  <input
-                  type="radio"
-                  name="send_email"
-                  value={false}
-                  onChange={this.handleChange}
-                  />
-                  Do Not Send Reminder
-                </label>
-              </form>
+              <label>
+                <input
+                type="radio"
+                name="send_email"
+                value={true}
+                onChange={this.handleChange}
+                />
+                Send Reminder
+              </label>
+              <br/>
+              <label>
+                <input
+                type="radio"
+                name="send_email"
+                value={false}
+                onChange={this.handleChange}
+                />
+                Do Not Send Reminder
+              </label>
             </div>
             <div>
               <input type="submit" className="button" value="Add" />

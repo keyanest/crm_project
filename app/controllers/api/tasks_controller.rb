@@ -6,10 +6,12 @@ class Api::TasksController < ApiController
 
   def show
     task = Task.find(params[:id])
-    render json: task
+    contact = task.contact
+    render json: { task: task, contact: contact}
   end
 
   def create
+    binding.pry
     contacts = current_user.contacts
     contact = task_params[:contact].split(" ")
     contact_id = nil
@@ -21,6 +23,15 @@ class Api::TasksController < ApiController
     task = Task.new(name: task_params[:name], body: task_params[:body], due_date: task_params[:due_date], contact_id: contact_id )
     task.assign_date = Date.today
     task.user = current_user
+    if task_params[:send_email] == true
+      UserMailer.reminder_email(current_user, task, task.contact.name).deliver
+    end
+    if task.save
+      render json: task
+    else
+      fullerror = "Please complete form correctly."
+      render json: fullerror
+    end
   end
 
   private

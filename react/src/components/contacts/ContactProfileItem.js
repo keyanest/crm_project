@@ -12,7 +12,6 @@ class ContactProfileItem extends Component {
   }
 
   componentWillMount(){
-    debugger
     let id = this.props.params.id
     $.ajax({
       url: "api/contacts/" + id,

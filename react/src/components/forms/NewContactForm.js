@@ -41,7 +41,7 @@ class NewContactForm extends Component {
      type: 'POST',
      data: newContactData,
    }).done(data => {
-     if (data.errors) {
+     if (data.fullerror) {
        this.setState({ errors: data.fullerror });
      } else {
        this.props.history.pushState(null, '/contacts');

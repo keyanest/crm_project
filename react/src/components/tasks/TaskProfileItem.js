@@ -5,7 +5,8 @@ class TaskProfileItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      task: []
+      task: [],
+      contact: []
     }
   }
 
@@ -14,20 +15,24 @@ class TaskProfileItem extends Component {
     $.ajax({
       url: "api/tasks/" + id,
     }).done(data => {
-      this.setState({ task: data })
+      this.setState({ task: data.task, contact: data.contact })
     })
   }
 
   render() {
-    debugger
     return (
       <div>
         <div>
           <ul>
             <li>
-              Task: {this.state.task.name}, &nbsp; Hello
-              Assigned: {this.state.task.assign_date}, &nbsp;
-              Due: {this.state.task.due_date}
+              Task: {this.state.task.name} &nbsp;
+              Assigned: {this.state.task.assign_date} &nbsp;
+              Due: {this.state.task.due_date} &nbsp;
+              Contact: &nbsp;
+              <Link to={`contacts/${this.state.contact.id}`}>
+              {this.state.contact.name} {this.state.contact.last_name}
+              </Link> &nbsp;
+              Phone Number: {this.state.contact.phone_number}
             </li>
           </ul>
         </div>

@@ -29,7 +29,7 @@ class NewLogForm extends Component {
      type: 'POST',
      data: newLogData,
    }).done(data => {
-     if (data.errors) {
+     if (data.fullerror) {
        this.setState({ errors: data.fullerror });
      } else {
        this.props.history.pushState(null, `/contacts/${this.props.params.id}/logs`);

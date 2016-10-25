@@ -39,7 +39,8 @@ class Logs extends Component {
         </div>
         <div>
           {logs}
-          <Link to={`/contacts/${this.props.params.id}/logs/new`}>New Log</Link>
+          <Link to={`/contacts/${this.props.params.id}/logs/new`}>New Log</Link> &nbsp;
+          <Link to={`contacts/${this.props.params.id}`}>Back to Contact</Link>
         </div>
       </div>
     );
