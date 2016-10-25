@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= @user.first_name %>!</h1>
+    <p>
+      This is a reminder for your task <%= @task.name %> you set for <%= @contact_name %>, <%= @contact.last_name %>
+    </p>
+    <p>
+      This task is assigned due by <%= @task.due_date %>
+    </p>
+    <p>Have a great day <%= @user.first_name %>!</p>
+  </body>
+</html>

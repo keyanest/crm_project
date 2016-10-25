@@ -28,11 +28,11 @@ class LogIndexItem extends Component {
           <div>
             <ul>
               <li>
-                Log: {this.props.name} Date: {this.props.log_date} Notes: {this.props.notes}
+                Log: {this.props.name} Date: {this.props.log_date} Notes: {this.props.notes} &nbsp;
+                <button type="submit" onClick={() => {this.deleteLog()}}>Delete</button>
               </li>
             </ul>
           </div>
-          <button type="submit" onClick={() => {this.deleteLog()}}>Delete</button>
         </div>
       </div>
     )

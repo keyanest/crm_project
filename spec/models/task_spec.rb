@@ -5,7 +5,7 @@ RSpec.describe Task, type: :model do
     user = FactoryGirl.create(:user)
     contact = FactoryGirl.create(:contact, user_id: 1)
     log = FactoryGirl.create(:log, user_id: 1, contact_id: 1)
-    task = FactoryGirl.create(:task, user_id: 1, contact_id: 1, log_id: 1)
+    task = FactoryGirl.create(:task, user_id: 1, contact_id: 1)
     expect(task).to be_valid
   end
   it "is not valid without a name" do

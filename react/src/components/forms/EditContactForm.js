@@ -61,7 +61,7 @@ class EditContactForm extends Component {
      type: 'PATCH',
      data: updateContactData,
    }).done(data => {
-     if (data.errors) {
+     if (data.fullerror) {
        this.setState({ errors: data.fullerror });
      } else {
        this.props.history.pushState(null, ("/contacts/" + id));

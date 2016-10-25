@@ -1,4 +1,5 @@
 class Api::ContactsController < ApiController
+
   def index
     contacts = current_user.contacts
     render json: contacts
