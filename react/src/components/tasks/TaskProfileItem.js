@@ -19,6 +19,15 @@ class TaskProfileItem extends Component {
     })
   }
 
+  deleteTask() {
+    $.ajax({
+      url: "/api/tasks/" + this.props.params.id,
+      type: "DELETE"
+    }).done(data => {
+      this.props.history.pushState(null, ("/tasks"));
+    })
+  }
+
   render() {
     return (
       <div>
@@ -32,9 +41,11 @@ class TaskProfileItem extends Component {
               <Link to={`contacts/${this.state.contact.id}`}>
               {this.state.contact.name} {this.state.contact.last_name}
               </Link> &nbsp;
-              Phone Number: {this.state.contact.phone_number}
+              Phone Number: {this.state.contact.phone_number} &nbsp;
             </li>
           </ul>
+          <Link to={`tasks/${this.props.params.id}/edit`}>Mark Task As Completed</Link> &nbsp;
+          <button type="submit" onClick={() => {this.deleteTask()}}>Delete</button>
         </div>
       </div>
     )

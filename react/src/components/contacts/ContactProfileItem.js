@@ -7,7 +7,8 @@ class ContactProfileItem extends Component {
     super(props);
     this.state = {
       contact: [],
-      logs: []
+      logs: [],
+      tasks: []
     }
   }
 
@@ -16,7 +17,7 @@ class ContactProfileItem extends Component {
     $.ajax({
       url: "api/contacts/" + id,
     }).done(data => {
-      this.setState({ contact: data.contact, logs: data.logs })
+      this.setState({ contact: data.contact, logs: data.logs, tasks: data.tasks })
     })
   }
 

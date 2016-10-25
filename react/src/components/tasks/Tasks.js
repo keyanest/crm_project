@@ -20,16 +20,18 @@ class Tasks extends Component {
 
   render () {
     let tasks = this.state.tasks.map(taskIndexItem => {
-      return(
-        <TaskIndexItem
-          key={taskIndexItem.id}
-          id={taskIndexItem.id}
-          name={taskIndexItem.name}
-          body={taskIndexItem.body}
-          assign_date={taskIndexItem.assign_date}
-          due_date={taskIndexItem.due_date}
-        />
-      )
+      if (taskIndexItem.completed === false) {
+        return(
+          <TaskIndexItem
+            key={taskIndexItem.id}
+            id={taskIndexItem.id}
+            name={taskIndexItem.name}
+            body={taskIndexItem.body}
+            assign_date={taskIndexItem.assign_date}
+            due_date={taskIndexItem.due_date}
+          />
+        )
+      }
     })
     return (
       <div>

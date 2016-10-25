@@ -8,7 +8,8 @@ class Api::ContactsController < ApiController
   def show
     contact = Contact.find(params[:id])
     logs = contact.logs
-    render json: { contact: contact, logs: logs }
+    tasks = contact.tasks
+    render json: { contact: contact, logs: logs, tasks: tasks }
   end
 
   def create
@@ -41,7 +42,7 @@ class Api::ContactsController < ApiController
     contact = Contact.find(params[:id])
     contacts = current_user.contacts
     contact.destroy
-      render  json: contacts
+    render  json: contacts
   end
 
   private
