@@ -21,14 +21,11 @@ class Api::TasksController < ApiController
     task = Task.new(name: task_params[:name], body: task_params[:body], due_date: task_params[:due_date], contact_id: contact_id )
     task.assign_date = Date.today
     task.user = current_user
-binding.pry
-
-
   end
 
   private
 
   def task_params
-    params.require(:task).permit(:name, :body, :due_date, :contact)
+    params.require(:task).permit(:name, :body, :due_date, :contact, :send_email)
   end
 end

@@ -9,7 +9,8 @@ class NewTaskForm extends Component {
       name: '',
       body: '',
       due_date: '',
-      contact: "",
+      send_email: false,
+      contact: '',
       contactSuggestions: []
     };
     this.handleContactFromSubmit = this.handleContactFromSubmit.bind(this);
@@ -45,6 +46,7 @@ class NewTaskForm extends Component {
        body: this.state.body,
        due_date: this.state.due_date,
        contact: this.state.contact,
+       send_email: this.state.send_email,
      }}
    $.ajax({
      url: "api/tasks",
@@ -99,6 +101,29 @@ class NewTaskForm extends Component {
               placeholder='Choose Contact'
               onKeyChange={this.onKeyChange}
             />
+            <div>
+              <form>
+                <label>
+                  <input
+                  type="radio"
+                  name="send_email"
+                  value={true}
+                  onChange={this.handleChange}
+                  />
+                  Send Reminder
+                </label>
+                <br/>
+                <label>
+                  <input
+                  type="radio"
+                  name="send_email"
+                  value={false}
+                  onChange={this.handleChange}
+                  />
+                  Do Not Send Reminder
+                </label>
+              </form>
+            </div>
             <div>
               <input type="submit" className="button" value="Add" />
             </div>
