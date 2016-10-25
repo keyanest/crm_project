@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import TaskIndexItem from './TaskIndexItem';
-import NewTaskForm from '../forms/NewTaskForm';
 
-class Tasks extends Component {
+
+class CompletedTasks extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasks: []
-    };
+      completed_tasks: []
+    }
   }
+
   componentWillMount() {
     $.ajax({
-      url: "api/tasks",
+      url: 'api/tasks',
     }).done(data => {
-      this.setState({ tasks: data.tasks })
+      this.setState({ completed_tasks: data.completed_tasks })
     })
   }
 
-  render () {
-    let tasks = this.state.tasks.map(taskIndexItem => {
+  render() {
+    let tasks = this.state.completed_tasks.map(taskIndexItem => {
       return(
         <TaskIndexItem
           key={taskIndexItem.id}
@@ -31,21 +32,21 @@ class Tasks extends Component {
         />
       )
     })
-    return (
+    return(
       <div>
         <div>
-          <h1>Tasks</h1>
+          <h1>Completed Tasks</h1>
         </div>
         <div>
         <Link to={"/tasks/new"}>New Task</Link> &nbsp;
-        <Link to={"tasks/complete"}>Completed Tasks</Link>
+        <Link to={"/tasks/"}>Back To Tasks</Link>
         </div>
         <div>
           {tasks}
         </div>
       </div>
-    );
+    )
   }
-};
+}
 
-export default Tasks;
+export default CompletedTasks;
