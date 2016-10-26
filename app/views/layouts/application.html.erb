@@ -14,8 +14,11 @@
   </head>
 
   <body>
+    <div class="logo">
+      Insert Logo Thanks
+    </div>
     <% if current_user %>
-      <div>
+      <div class="col s12 m6 l6 left">
         <br/>
           <p><span>Hello <%= @user.first_name %>!</span>
         <span><%= link_to "Logout", destroy_user_session_path, method: :delete %></span></p>
