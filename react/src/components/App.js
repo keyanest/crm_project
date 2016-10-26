@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, Router } from 'react-router';
 import NavLink from './NavLink';
 import Home from './Home';
-import { Navbar, NavItem, Nav, Panel } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 
 
 class App extends Component {
@@ -16,20 +16,18 @@ class App extends Component {
 
   render () {
     return (
-      <div>
+      <div className="whole">
         <div className="nav">
-          <Navbar.Header>
-            <Nav bsStyle="pills" activeKey={1}>
-              <NavItem key={1} href="#" onClick={() => {this.props.history.pushState(null, '/')}}>Home</NavItem>
-              <NavItem key={2} href="#" onClick={() => {this.props.history.pushState(null, 'contacts')}}>My Contacts</NavItem>
-              <NavItem key={3} href="#" onClick={() => {this.props.history.pushState(null, 'tasks')}}>My Tasks</NavItem>
-              <NavItem key={4} href="#" onClick={() => {this.props.history.pushState(null, 'tasks/complete')}}>Completed Tasks</NavItem>
-              <NavItem key={5} href="#" onClick={() => {this.props.history.pushState(null, 'tasks/new')}}>New Task</NavItem>
-              <NavItem key={6} href="#" onClick={() => {this.props.history.pushState(null, 'contacts/new')}}>New Contact</NavItem>
-              <NavItem key={7} href="#" onClick={() => {this.props.history.pushState(null, 'about')}}>About Us</NavItem>
-              <NavItem key={8} href="#" onClick={() => {this.props.history.pushState(null, 'contact')}}>Contact Us</NavItem>
-            </Nav>
-          </Navbar.Header>
+          <NavDropdown eventKey={1} title="Menu" id="basic-nav-dropdown">
+            <MenuItem eventKey={1.1} href="#" onClick={() => {this.props.history.pushState(null, '/')}}>Home</MenuItem>
+            <MenuItem eventKey={1.2} href="#" onClick={() => {this.props.history.pushState(null, 'contacts')}}>My Contacts</MenuItem>
+            <MenuItem eventKey={1.3} href="#" onClick={() => {this.props.history.pushState(null, 'tasks')}}>My Tasks</MenuItem>
+            <MenuItem eventKey={1.3} href="#" onClick={() => {this.props.history.pushState(null, 'tasks/complete')}}>Completed Tasks</MenuItem>
+            <MenuItem eventKey={1.4} href="#" onClick={() => {this.props.history.pushState(null, 'tasks/new')}}>New Task</MenuItem>
+            <MenuItem eventKey={1.5} href="#" onClick={() => {this.props.history.pushState(null, 'contacts/new')}}>New Contact</MenuItem>
+            <MenuItem eventKey={1.6} href="#" onClick={() => {this.props.history.pushState(null, 'stats')}}>Your Stats</MenuItem>
+            <MenuItem eventKey={1.5} href="#" onClick={() => {this.props.history.pushState(null, 'about')}}>Contact Us</MenuItem>
+          </NavDropdown>
         </div>
         <br />
         <div>

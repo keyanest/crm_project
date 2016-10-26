@@ -8,7 +8,6 @@ class Api::LogsController < ApiController
 
   def show
     log = Log.find(params[:id])
-    binding.pry
     contact = log.contact
     render json: { log: log, contact: contact}
   end
