@@ -38,3 +38,17 @@ class LogIndexItem extends Component {
 }
 
 export default LogIndexItem;
+
+let logs = this.state.logs.map(logIndexItem =>{
+    return (
+      <LogIndexItem
+        key={logIndexItem.id}
+        id={logIndexItem.id}
+        name={logIndexItem.name}
+        log_date={logIndexItem.log_date}
+        notes={logIndexItem.notes}
+        contactId={this.props.params.id}
+        history={this.props.history}
+      />
+    );
+  });

@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router';
-import TaskIndexItem from './TaskIndexItem';
-
+import { Grid, Row } from 'react-bootstrap';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 class CompletedTasks extends Component {
   constructor(props) {
     super(props);
     this.state = {
       completed_tasks: []
-    }
+    };
+    this.linkFormatter = this.linkFormatter.bind(this);
   }
 
   componentWillMount() {
@@ -19,32 +20,28 @@ class CompletedTasks extends Component {
     })
   }
 
+  linkFormatter(cell, row){
+    return <Link to={`/contacts/` + cell}>View</Link>;
+  }
+
   render() {
-    let tasks = this.state.completed_tasks.map(taskIndexItem => {
-      return(
-        <TaskIndexItem
-          key={taskIndexItem.id}
-          id={taskIndexItem.id}
-          name={taskIndexItem.name}
-          body={taskIndexItem.body}
-          assign_date={taskIndexItem.assign_date}
-          due_date={taskIndexItem.due_date}
-        />
-      )
-    })
     return(
-      <div>
+      <Grid>
+        <Row>
+          <div className="text-center">
+            <h3>Completed Tasks</h3>
+          </div>
+        </Row>
         <div>
-          <h1>Completed Tasks</h1>
+          <BootstrapTable data={this.state.completed_tasks} striped={true} hover={true}>
+          <TableHeaderColumn dataField="contact_id" isKey={true} dataFormat={this.linkFormatter} dataSort={true}>Contact</TableHeaderColumn>
+          <TableHeaderColumn dataField="name" dataSort={true}>Task</TableHeaderColumn>
+          <TableHeaderColumn dataField="body" dataSort={true}>Notes</TableHeaderColumn>
+          <TableHeaderColumn dataField="assign_date" dataSort={true}>Assigned</TableHeaderColumn>
+          <TableHeaderColumn dataField="due_date" dataSort={true}>Completed</TableHeaderColumn>
+          </BootstrapTable>
         </div>
-        <div>
-        <Link to={"/tasks/new"}>New Task</Link> &nbsp;
-        <Link to={"/tasks/"}>Back To Tasks</Link>
-        </div>
-        <div>
-          {tasks}
-        </div>
-      </div>
+      </Grid>
     )
   }
 }

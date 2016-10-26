@@ -30,11 +30,13 @@ class TaskProfileItem extends Component {
   }
 
   render() {
+    debugger
     return (
       <Grid>
         <Row>
-          <Col xs={6} md={4}>
+          <div className="text-center">
             Task: {this.state.task.name} <br />
+            Notes: {this.state.task.body} <br />
             Assigned: {this.state.task.assign_date} <br />
             Due: {this.state.task.due_date} <br />
             Contact: &nbsp;
@@ -42,9 +44,9 @@ class TaskProfileItem extends Component {
             {this.state.contact.name} {this.state.contact.last_name}
             </Link> <br />
             Phone Number: {this.state.contact.phone_number} <br />
-            <Link to={`tasks/${this.props.params.id}/edit`}>Mark Task As Completed</Link> &nbsp;
+            <Link to={`tasks/${this.props.params.id}/edit`}>Mark Task As Completed</Link>
             <button type="submit" onClick={() => {this.deleteTask()}}>Delete</button>
-          </Col>
+          </div>
         </Row>
       </Grid>
     )

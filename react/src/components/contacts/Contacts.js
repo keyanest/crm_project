@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import ContactIndexItem from './ContactIndexItem';
-import NewContactForm from '../forms/NewContactForm';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row } from 'react-bootstrap';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 class Contacts extends Component {
   constructor(props) {
@@ -10,6 +9,7 @@ class Contacts extends Component {
     this.state = {
       contacts: [],
     };
+    this.linkFormatter = this.linkFormatter.bind(this);
   }
 
   componentWillMount() {
@@ -20,24 +20,12 @@ class Contacts extends Component {
     })
   }
 
+  linkFormatter(cell, row){
+    return <Link to={`/contacts/` + cell}>View</Link>;
+  }
+
   render () {
     let error = this.state.fullerror
-    let contacts = this.state.contacts.map(contactIndexItem =>{
-        return (
-          <ContactIndexItem
-            key={contactIndexItem.id}
-            id={contactIndexItem.id}
-            name={contactIndexItem.name}
-            last_name={contactIndexItem.last_name}
-            phone_number={contactIndexItem.phone_number}
-            email={contactIndexItem.email}
-            company={contactIndexItem.company}
-            position={contactIndexItem.position}
-            department={contactIndexItem.department}
-            last_contact={contactIndexItem.last_contact}
-          />
-        );
-      });
     return (
       <Grid>
         <Row>
@@ -46,7 +34,12 @@ class Contacts extends Component {
           </div>
         </Row>
         <div>
-          {contacts}
+          <BootstrapTable data={this.state.contacts} striped={true} hover={true}>
+            <TableHeaderColumn dataField="id" isKey={true} dataFormat={this.linkFormatter} dataSort={true}>Profile Page</TableHeaderColumn>
+            <TableHeaderColumn dataField="name" dataSort={true}>First Name</TableHeaderColumn>
+            <TableHeaderColumn dataField="last_name" dataSort={true}>Last Name</TableHeaderColumn>
+            <TableHeaderColumn dataField="company" dataSort={true}>Company</TableHeaderColumn>
+          </BootstrapTable>
         </div>
       </Grid>
     );

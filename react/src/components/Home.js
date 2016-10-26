@@ -15,7 +15,6 @@ class Home extends Component {
     $.ajax({
       url: 'api/users',
     }).done(data => {
-      debugger
       this.setState({ user: data })
     })
   }

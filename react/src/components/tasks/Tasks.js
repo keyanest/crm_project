@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import TaskIndexItem from './TaskIndexItem';
-import NewTaskForm from '../forms/NewTaskForm';
+import { Grid, Row } from 'react-bootstrap';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 class Tasks extends Component {
   constructor(props) {
@@ -9,6 +9,7 @@ class Tasks extends Component {
     this.state = {
       tasks: []
     };
+    this.linkFormatter = this.linkFormatter.bind(this);
   }
   componentWillMount() {
     $.ajax({
@@ -18,32 +19,27 @@ class Tasks extends Component {
     })
   }
 
+  linkFormatter(cell, row){
+    return <Link to={`/tasks/` + cell}>View</Link>;
+  }
+
   render () {
-    let tasks = this.state.tasks.map(taskIndexItem => {
-      return(
-        <TaskIndexItem
-          key={taskIndexItem.id}
-          id={taskIndexItem.id}
-          name={taskIndexItem.name}
-          body={taskIndexItem.body}
-          assign_date={taskIndexItem.assign_date}
-          due_date={taskIndexItem.due_date}
-        />
-      )
-    })
     return (
-      <div>
+      <Grid>
+        <Row>
+          <div className="text-center">
+            <h3>Tasks</h3>
+          </div>
+        </Row>
         <div>
-          <h1>Tasks</h1>
+          <BootstrapTable data={this.state.tasks} striped={true} hover={true}>
+            <TableHeaderColumn dataField="id" isKey={true} dataFormat={this.linkFormatter} dataSort={true}>Task Page</TableHeaderColumn>
+            <TableHeaderColumn dataField="name" dataSort={true}>Task</TableHeaderColumn>
+            <TableHeaderColumn dataField="assign_date" dataSort={true}>Assigned</TableHeaderColumn>
+            <TableHeaderColumn dataField="due_date" dataSort={true}>Due</TableHeaderColumn>
+          </BootstrapTable>
         </div>
-        <div>
-        <Link to={"/tasks/new"}>New Task</Link> &nbsp;
-        <Link to={"tasks/complete"}>Completed Tasks</Link>
-        </div>
-        <div>
-          {tasks}
-        </div>
-      </div>
+      </Grid>
     );
   }
 };

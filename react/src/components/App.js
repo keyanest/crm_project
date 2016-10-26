@@ -32,7 +32,11 @@ class App extends Component {
           </Navbar.Header>
         </div>
         <div>
-          <p>{this.props.children || <Home/>}</p>
+          {this.props.children || <Home/>}
+        </div>
+        <div>
+          <button onClick={() => this.props.history.goBack()}>Back</button> &nbsp;
+          <button onClick={() => this.props.history.goForward()}>Forward</button>
         </div>
       </div>
     )
