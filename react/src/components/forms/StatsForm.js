@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router';
+import { Button } from 'react-bootstrap';
 
 class StatsForm extends Component {
   constructor(props) {
@@ -45,7 +46,8 @@ class StatsForm extends Component {
 
   render() {
     return(
-      <div>
+      <div className="text-center">
+      <h1>New Stats</h1>
       <form onSubmit={this.handleStatFromSubmit}>
         <div>
           <input
@@ -88,7 +90,7 @@ class StatsForm extends Component {
           />
         </div>
         <div>
-          <input type="submit" className="button" value="Submit" />
+          <Button className="buttons" type="submit">Submit</Button>
         </div>
       </form>
       </div>

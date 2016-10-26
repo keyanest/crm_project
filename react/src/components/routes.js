@@ -16,7 +16,8 @@ import TaskProfileItem from './tasks/TaskProfileItem';
 import NewTaskForm from './forms/NewTaskForm';
 import EditTaskForm from './forms/EditTaskForm';
 import CompletedTasks from './tasks/CompletedTasks';
-import StatsForm from './stats/StatsForm'
+import StatChart from './stats/StatChart';
+import StatsForm from './forms/StatsForm';
 
 module.exports = (
   <Route>
@@ -24,7 +25,8 @@ module.exports = (
       <IndexRoute component={Home}/>
       <Route path="/about" component={About}/>
       <Route path="/contact" component={AppContact}/>
-      <Route path="/stats" component={StatsForm}/>
+      <Route path="/stats" component={StatChart}/>
+      <Route path="/stats/new" component={StatsForm}/>
       <Route path="/contacts" component={Contacts}/>
       <Route path="/contacts/new" component={NewContactForm}/>
       <Route path="/contacts/:id/edit" component={EditContactForm}/>

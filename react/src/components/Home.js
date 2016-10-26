@@ -21,10 +21,12 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Your Profile</h1>
-        Name: {this.state.user.first_name} {this.state.user.last_name} <br />
-        Email: {this.state.user.email}
+      <div className="container">
+        <div className="text-center">
+          <h1>Home Page</h1>
+          Name: {this.state.user.first_name} {this.state.user.last_name} <br />
+          Email: {this.state.user.email}
+        </div>
       </div>
     )
   }
