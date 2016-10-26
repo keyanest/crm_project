@@ -1,2 +1,32 @@
 // @import "*";
 
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.css';
+
+body{
+  background-image: url(field.jpg);
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Corben', Georgia, Times, serif;
+}
+p, div {
+    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+}
+
+.nav {
+    background-image: url(concrete_seamless.png);
+    background-size: cover;
+}
+
+h1 {
+    text-shadow: 1px 1px 1px #ccc;
+}
+
+.table {
+  background-color: #d3d3d3;
+}
+
+.profile {
+  border-style: solid;
+  border-width: 5px;
+  background-color: white;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 class TaskProfileItem extends Component {
   constructor(props) {
@@ -29,25 +30,25 @@ class TaskProfileItem extends Component {
   }
 
   render() {
+    debugger
     return (
-      <div>
-        <div>
-          <ul>
-            <li>
-              Task: {this.state.task.name} &nbsp;
-              Assigned: {this.state.task.assign_date} &nbsp;
-              Due: {this.state.task.due_date} &nbsp;
-              Contact: &nbsp;
-              <Link to={`contacts/${this.state.contact.id}`}>
-              {this.state.contact.name} {this.state.contact.last_name}
-              </Link> &nbsp;
-              Phone Number: {this.state.contact.phone_number} &nbsp;
-            </li>
-          </ul>
-          <Link to={`tasks/${this.props.params.id}/edit`}>Mark Task As Completed</Link> &nbsp;
-          <button type="submit" onClick={() => {this.deleteTask()}}>Delete</button>
-        </div>
-      </div>
+      <Grid>
+        <Row className="profile">
+          <div className="text-center">
+            Task: {this.state.task.name} <br />
+            Notes: {this.state.task.body} <br />
+            Assigned: {this.state.task.assign_date} <br />
+            Due: {this.state.task.due_date} <br />
+            Contact: &nbsp;
+            <Link to={`contacts/${this.state.contact.id}`}>
+            {this.state.contact.name} {this.state.contact.last_name}
+            </Link> <br />
+            Phone Number: {this.state.contact.phone_number} <br />
+            <Link to={`tasks/${this.props.params.id}/edit`}>Mark Task As Completed</Link> <br />
+            <button type="submit" onClick={() => {this.deleteTask()}}>Delete</button>
+          </div>
+        </Row>
+      </Grid>
     )
   }
 }

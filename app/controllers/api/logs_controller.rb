@@ -8,7 +8,9 @@ class Api::LogsController < ApiController
 
   def show
     log = Log.find(params[:id])
-    render json: log
+    binding.pry
+    contact = log.contact
+    render json: { log: log, contact: contact}
   end
 
   def create
