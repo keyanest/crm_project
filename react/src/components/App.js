@@ -4,7 +4,6 @@ import NavLink from './NavLink';
 import Home from './Home';
 import { Navbar, Nav, Dropdown, MenuItem, Breadcrumb, NavItem } from 'react-bootstrap';
 
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -29,7 +28,8 @@ class App extends Component {
                 <MenuItem eventKey={1.4} href="#" onClick={() => {this.props.history.pushState(null, 'tasks/new')}}>New Task</MenuItem>
                 <MenuItem eventKey={1.5} href="#" onClick={() => {this.props.history.pushState(null, 'contacts/new')}}>New Contact</MenuItem>
                 <MenuItem eventKey={1.6} href="#" onClick={() => {this.props.history.pushState(null, 'stats')}}>Your Stats</MenuItem>
-                <MenuItem eventKey={1.5} href="#" onClick={() => {this.props.history.pushState(null, 'about')}}>Contact Us</MenuItem>
+                <MenuItem eventKey={1.7} href="#" onClick={() => {this.props.history.pushState(null, 'about')}}>Contact Us</MenuItem>
+                <MenuItem eventKey={1.8} href="#" onClick={() => {this.props.history.pushState(null, 'signoff')}}>Sign Out</MenuItem>
               </Dropdown.Menu>
             </Dropdown>
           </Nav>

@@ -14,6 +14,7 @@ class EditTasKForm extends Component {
   }
 
   componentWillMount() {
+    debugger
    let id = this.props.params.id
    let updateTaskData = {
       task: {

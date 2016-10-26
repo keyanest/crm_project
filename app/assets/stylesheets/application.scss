@@ -11,12 +11,15 @@ body{
   opacity: 0.9;
   height: 100%;
   margin-bottom: 60px;
+  background-color: #e5e5f2;
+  margin-left: 5px;
+  margin-right: 5px;
 }
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Lato';
     font: #4A96AD;
     text-shadow: 1px 1px 1px #ccc;
-
 }
 p, div {
     font-family: 'Lato';
@@ -24,7 +27,8 @@ p, div {
 
 .nav {
     box-shadow: 1px 1px 1px #aaa;
-    border-radius: 1px
+    border-radius: 1px;
+    margin-top: 10px;
 }
 
 .profile {
@@ -45,6 +49,11 @@ p, div {
   left: 45%;
 }
 
+img {
+  max-width:172.5;
+  max-height:71.25px
+}
+
 .buttons {
   border-radius: 5px;
   margin: 3px;
@@ -58,12 +67,21 @@ p, div {
   margin-top: 60px;
   background-color: #999999;
   clear: both;
-  margin-bottom:0px;
+  margin-bottom: 0px;
+  padding-top: 10px;
 }
 
 #content {
-  padding-bottom: 60px;
   min-height: 100%;
   height: auto;
   position: relative;
+
+}
+
+#logger {
+  font-size: 20px;
+}
+
+.charts {
+  display: flex;
 }

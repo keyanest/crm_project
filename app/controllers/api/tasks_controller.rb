@@ -13,7 +13,7 @@ class Api::TasksController < ApiController
       end
     end
     arr.each do |c|
-      if c.user == current_user && c.due_date == Date.today
+      if c.user == current_user && c.due_date == Date.today && c.completed == false
         user_tasks << c
       end
     end
