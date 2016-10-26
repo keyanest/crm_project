@@ -25,21 +25,23 @@ class Tasks extends Component {
 
   render () {
     return (
-      <Grid>
-        <Row>
-          <div className="text-center">
-            <h3>Tasks</h3>
+      <div className="container">
+        <Grid>
+          <Row>
+            <div className="text-center">
+              <h3>Tasks</h3>
+            </div>
+          </Row>
+          <div className="table">
+            <BootstrapTable data={this.state.tasks} striped={true} hover={true}>
+              <TableHeaderColumn dataField="id" isKey={true} dataFormat={this.linkFormatter} dataSort={true}>Task Page</TableHeaderColumn>
+              <TableHeaderColumn dataField="name" dataSort={true}>Task</TableHeaderColumn>
+              <TableHeaderColumn dataField="assign_date" dataSort={true}>Assigned</TableHeaderColumn>
+              <TableHeaderColumn dataField="due_date" dataSort={true}>Due</TableHeaderColumn>
+            </BootstrapTable>
           </div>
-        </Row>
-        <div className="table">
-          <BootstrapTable data={this.state.tasks} striped={true} hover={true}>
-            <TableHeaderColumn dataField="id" isKey={true} dataFormat={this.linkFormatter} dataSort={true}>Task Page</TableHeaderColumn>
-            <TableHeaderColumn dataField="name" dataSort={true}>Task</TableHeaderColumn>
-            <TableHeaderColumn dataField="assign_date" dataSort={true}>Assigned</TableHeaderColumn>
-            <TableHeaderColumn dataField="due_date" dataSort={true}>Due</TableHeaderColumn>
-          </BootstrapTable>
-        </div>
-      </Grid>
+        </Grid>
+      </div>
     );
   }
 };

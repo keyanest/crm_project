@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter, RouterContext, Router } from 'react-router';
+import { Button } from 'react-bootstrap';
 
 class EditContactForm extends Component {
   constructor(props) {
@@ -86,7 +87,7 @@ class EditContactForm extends Component {
 
   render() {
     return(
-      <div>
+      <div className="text-center">
       <h1>Edit Contact</h1>
       <h1>{this.state.errors}</h1>
         <div>
@@ -164,16 +165,11 @@ class EditContactForm extends Component {
               />
             </div>
               <div>
-                <input type="submit" className="button" value="Update" />
-              </div>
-              <br/>
-              <div>
-                <Link to={'/contacts/' + this.props.params.id}>Cancel</Link>
+                <Button className="buttons" type="submit">Submit</Button>
               </div>
           </form>
         </div>
-        <br/>
-        <button type="submit" onClick={() => {this.deleteContact()}}>Delete</button>
+        <Button className="buttons" type="submit" onClick={() => {this.deleteContact()}}>Delete</Button>
       </div>
     );
   }

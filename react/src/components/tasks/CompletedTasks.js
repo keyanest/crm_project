@@ -21,7 +21,7 @@ class CompletedTasks extends Component {
   }
 
   linkFormatter(cell, row){
-    return <Link to={`/contacts/` + cell}>View</Link>;
+    return <Link to={`/contacts/` + cell}>Contact</Link>;
   }
 
   render() {
@@ -34,7 +34,7 @@ class CompletedTasks extends Component {
         </Row>
         <div className="table">
           <BootstrapTable data={this.state.completed_tasks} striped={true} hover={true}>
-          <TableHeaderColumn dataField="contact_id" isKey={true} dataFormat={this.linkFormatter} dataSort={true}>Contact</TableHeaderColumn>
+          <TableHeaderColumn dataField="contact_id" isKey={true} dataFormat={this.linkFormatter} dataSort={true}></TableHeaderColumn>
           <TableHeaderColumn dataField="name" dataSort={true}>Task</TableHeaderColumn>
           <TableHeaderColumn dataField="body" dataSort={true}>Notes</TableHeaderColumn>
           <TableHeaderColumn dataField="assign_date" dataSort={true}>Assigned</TableHeaderColumn>

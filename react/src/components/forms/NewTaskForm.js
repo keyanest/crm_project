@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router';
 import Search from 'react-search';
+import { Button } from 'react-bootstrap';
 
 class NewTaskForm extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class NewTaskForm extends Component {
       contactSuggestions: [],
       errors: ''
     };
-    this.handleContactFromSubmit = this.handleContactFromSubmit.bind(this);
+    this.handleTaskFromSubmit = this.handleTaskFromSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.onKeyChange = this.onKeyChange.bind(this);
   }
@@ -39,7 +40,7 @@ class NewTaskForm extends Component {
    });
  }
 
-  handleContactFromSubmit(event) {
+  handleTaskFromSubmit(event) {
    event.preventDefault();
    let newTaskData = {
      task: {
@@ -74,11 +75,11 @@ class NewTaskForm extends Component {
 
   render() {
     return(
-      <div>
+      <div className="text-center">
       <h1>New Task</h1>
       <h1>{this.state.errors}</h1>
         <div>
-          <form onSubmit={this.handleContactFromSubmit}>
+          <form onSubmit={this.handleTaskFromSubmit}>
             <div>
               <input
               type="text"
@@ -106,11 +107,6 @@ class NewTaskForm extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <Search
-              items={this.state.contactSuggestions}
-              placeholder='Choose Contact'
-              onKeyChange={this.onKeyChange}
-            />
             <div>
               <label>
                 <input
@@ -133,7 +129,14 @@ class NewTaskForm extends Component {
               </label>
             </div>
             <div>
-              <input type="submit" className="button" value="Add" />
+              <Search
+                items={this.state.contactSuggestions}
+                placeholder='Choose Contact'
+                onKeyChange={this.onKeyChange}
+              />
+            </div>
+            <div>
+              <Button className="buttons" type="submit">Submit</Button>
             </div>
           </form>
         </div>

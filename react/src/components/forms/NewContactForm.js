@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router';
+import { Button } from 'react-bootstrap';
 
 class NewContactForm extends Component {
   constructor(props) {
@@ -57,7 +58,7 @@ class NewContactForm extends Component {
 
   render() {
     return(
-      <div>
+      <div className="text-center">
       <h1>New Contact</h1>
       <h1>{this.state.errors}</h1>
         <div>
@@ -135,7 +136,7 @@ class NewContactForm extends Component {
               />
             </div>
               <div>
-                <input type="submit" className="button" value="Add" />
+                <Button className="buttons" type="submit">Submit</Button>
               </div>
           </form>
         </div>

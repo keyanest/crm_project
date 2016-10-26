@@ -29,7 +29,6 @@ class LogProfileItem extends Component {
   }
 
   render() {
-    debugger
     return (
       <Grid>
         <Row className="profile">

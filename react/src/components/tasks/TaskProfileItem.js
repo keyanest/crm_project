@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { Grid, Row, Col } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 class TaskProfileItem extends Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class TaskProfileItem extends Component {
     return (
       <Grid>
         <Row className="profile">
-          <div className="text-center">
+          <div>
             Task: {this.state.task.name} <br />
             Notes: {this.state.task.body} <br />
             Assigned: {this.state.task.assign_date} <br />
@@ -44,8 +45,8 @@ class TaskProfileItem extends Component {
             {this.state.contact.name} {this.state.contact.last_name}
             </Link> <br />
             Phone Number: {this.state.contact.phone_number} <br />
-            <Link to={`tasks/${this.props.params.id}/edit`}>Mark Task As Completed</Link> <br />
-            <button type="submit" onClick={() => {this.deleteTask()}}>Delete</button>
+            <Button className="buttons" type="submit" onClick={() => {this.props.history.pushState(null, `tasks/${this.props.params.id}/edit`)}}>Completed</Button>
+            <Button className="buttons" type="submit" onClick={() => {this.deleteTask()}}>Delete</Button>
           </div>
         </Row>
       </Grid>
