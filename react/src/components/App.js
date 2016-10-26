@@ -17,7 +17,7 @@ class App extends Component {
   render () {
     return (
       <div>
-        <div xs={12} md={8}>
+        <div className="nav">
           <Navbar.Header>
             <Nav bsStyle="pills" activeKey={1}>
               <NavItem key={1} href="#" onClick={() => {this.props.history.pushState(null, '/')}}>Home</NavItem>
@@ -31,9 +31,11 @@ class App extends Component {
             </Nav>
           </Navbar.Header>
         </div>
+        <br />
         <div>
           {this.props.children || <Home/>}
         </div>
+        <br />
         <div>
           <button onClick={() => this.props.history.goBack()}>Back</button> &nbsp;
           <button onClick={() => this.props.history.goForward()}>Forward</button>

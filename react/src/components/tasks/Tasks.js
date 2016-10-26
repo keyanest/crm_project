@@ -31,7 +31,7 @@ class Tasks extends Component {
             <h3>Tasks</h3>
           </div>
         </Row>
-        <div>
+        <div className="table">
           <BootstrapTable data={this.state.tasks} striped={true} hover={true}>
             <TableHeaderColumn dataField="id" isKey={true} dataFormat={this.linkFormatter} dataSort={true}>Task Page</TableHeaderColumn>
             <TableHeaderColumn dataField="name" dataSort={true}>Task</TableHeaderColumn>

@@ -28,7 +28,7 @@ class Logs extends Component {
             <h3>Logs</h3>
           </div>
         </Row>
-        <div>
+        <div className="table">
           <BootstrapTable data={this.state.logs} striped={true} hover={true}>
             <TableHeaderColumn dataField="name" isKey={true} dataSort={true}>Log</TableHeaderColumn>
             <TableHeaderColumn dataField="notes" dataSort={true}>Notes</TableHeaderColumn>

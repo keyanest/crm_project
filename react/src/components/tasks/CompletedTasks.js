@@ -32,13 +32,13 @@ class CompletedTasks extends Component {
             <h3>Completed Tasks</h3>
           </div>
         </Row>
-        <div>
+        <div className="table">
           <BootstrapTable data={this.state.completed_tasks} striped={true} hover={true}>
           <TableHeaderColumn dataField="contact_id" isKey={true} dataFormat={this.linkFormatter} dataSort={true}>Contact</TableHeaderColumn>
           <TableHeaderColumn dataField="name" dataSort={true}>Task</TableHeaderColumn>
           <TableHeaderColumn dataField="body" dataSort={true}>Notes</TableHeaderColumn>
           <TableHeaderColumn dataField="assign_date" dataSort={true}>Assigned</TableHeaderColumn>
-          <TableHeaderColumn dataField="due_date" dataSort={true}>Completed</TableHeaderColumn>
+          <TableHeaderColumn dataField="due_date" dataSort={true}>Completed On</TableHeaderColumn>
           </BootstrapTable>
         </div>
       </Grid>

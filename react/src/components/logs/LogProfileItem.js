@@ -32,7 +32,7 @@ class LogProfileItem extends Component {
     debugger
     return (
       <Grid>
-        <Row>
+        <Row className="profile">
           <Col xs={6} md={4}>
             Log: {this.state.log.name} <br />
             Date: {this.state.log.log_date} <br />

@@ -26,7 +26,7 @@ class ContactProfileItem extends Component {
   render() {
     return (
       <Grid>
-        <Row>
+        <Row className="profile">
           <div className="text-center">
               Contact: {this.state.contact.name} {this.state.contact.last_name} <br />
               Phone Number: {this.state.contact.phone_number} <br />
@@ -34,7 +34,7 @@ class ContactProfileItem extends Component {
               Company: {this.state.contact.company} <br />
               Position: {this.state.contact.position} <br />
               Department: {this.state.contact.department} <br />
-              Last Contact: {this.state.contact.last_contact} <br />
+              Last Contact: {this.state.contact.last_contact} <br /> <br />
               <Link to={`/contacts/${this.state.contact.id}/logs`}>Logs</Link> &nbsp;
               <Link to={`/contacts/${this.state.contact.id}/edit`}>Edit Contact</Link> &nbsp;
           </div>

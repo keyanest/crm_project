@@ -33,7 +33,7 @@ class Contacts extends Component {
             <h3>Contacts</h3>
           </div>
         </Row>
-        <div>
+        <div className="table">
           <BootstrapTable data={this.state.contacts} striped={true} hover={true}>
             <TableHeaderColumn dataField="id" isKey={true} dataFormat={this.linkFormatter} dataSort={true}>Profile Page</TableHeaderColumn>
             <TableHeaderColumn dataField="name" dataSort={true}>First Name</TableHeaderColumn>
