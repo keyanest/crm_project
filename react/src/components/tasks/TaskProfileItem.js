@@ -33,23 +33,23 @@ class TaskProfileItem extends Component {
   render() {
     debugger
     return (
-      <Grid>
-        <Row className="profile">
-          <div>
-            Task: {this.state.task.name} <br />
-            Notes: {this.state.task.body} <br />
-            Assigned: {this.state.task.assign_date} <br />
-            Due: {this.state.task.due_date} <br />
-            Contact: &nbsp;
+      <div className="container">
+        <div className="card">
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">Task: {this.state.task.name}</li>
+            <li className="list-group-item">Notes: {this.state.task.body}</li>
+            <li className="list-group-item">Assigned: {this.state.task.assign_date}</li>
+            <li className="list-group-item">Due: {this.state.task.due_date}</li>
+            <li className="list-group-item">Contact: &nbsp;
             <Link to={`contacts/${this.state.contact.id}`}>
             {this.state.contact.name} {this.state.contact.last_name}
-            </Link> <br />
-            Phone Number: {this.state.contact.phone_number} <br />
-            <Button className="buttons" type="submit" onClick={() => {this.props.history.pushState(null, `tasks/${this.props.params.id}/edit`)}}>Completed</Button>
-            <Button className="buttons" type="submit" onClick={() => {this.deleteTask()}}>Delete</Button>
-          </div>
-        </Row>
-      </Grid>
+            </Link></li>
+            <li className="list-group-item">Phone Number: {this.state.contact.phone_number}</li>
+            <Button className="buttons" onClick={() => {this.props.history.pushState(null, `tasks/${this.props.params.id}/edit`)}}>Completed</Button>
+            <Button className="buttons" onClick={() => {this.deleteTask()}}>Delete</Button>
+          </ul>
+        </div>
+      </div>
     )
   }
 }

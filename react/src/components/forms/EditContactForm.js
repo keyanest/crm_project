@@ -13,7 +13,6 @@ class EditContactForm extends Component {
       company: '',
       position: '',
       department: '',
-      last_contact: '',
       errors: ''
     };
     this.handleContactFromSubmit = this.handleContactFromSubmit.bind(this);
@@ -87,12 +86,12 @@ class EditContactForm extends Component {
 
   render() {
     return(
-      <div className="text-center">
+      <div className="container">
       <h1>Edit Contact</h1>
       <h1>{this.state.errors}</h1>
         <div>
           <form onSubmit={this.handleContactFromSubmit}>
-            <div>
+            <div className="form-control input-lg">
               <input
               type="text"
               placeholder="first name"
@@ -101,7 +100,7 @@ class EditContactForm extends Component {
               onChange={this.handleChange}
               />
             </div>
-            <div>
+            <div className="form-control input-lg">
               <input
               type="text"
               placeholder="last name"
@@ -110,7 +109,7 @@ class EditContactForm extends Component {
               onChange={this.handleChange}
               />
             </div>
-            <div>
+            <div className="form-control input-lg">
               <input
               type="text"
               placeholder="phone number"
@@ -119,7 +118,7 @@ class EditContactForm extends Component {
               onChange={this.handleChange}
               />
             </div>
-            <div>
+            <div className="form-control input-lg">
               <input
               type="text"
               placeholder="email"
@@ -128,7 +127,7 @@ class EditContactForm extends Component {
               onChange={this.handleChange}
               />
             </div>
-            <div>
+            <div className="form-control input-lg">
               <input
               type="text"
               placeholder="company"
@@ -137,7 +136,7 @@ class EditContactForm extends Component {
               onChange={this.handleChange}
               />
             </div>
-            <div>
+            <div className="form-control input-lg">
               <input
               type="text"
               placeholder="position"
@@ -146,7 +145,7 @@ class EditContactForm extends Component {
               onChange={this.handleChange}
               />
             </div>
-            <div>
+            <div className="form-control input-lg">
               <input
               type="text"
               placeholder="department"
@@ -156,20 +155,11 @@ class EditContactForm extends Component {
               />
             </div>
             <div>
-              <input
-              type="text"
-              placeholder="last contact"
-              name="last_contact"
-              value={this.state.last_contact}
-              onChange={this.handleChange}
-              />
+              <Button className="buttons" type="submit">Submit</Button>
+              <Button className="buttons" onClick={() => {this.deleteContact()}}>Delete</Button>
             </div>
-              <div>
-                <Button className="buttons" type="submit">Submit</Button>
-              </div>
           </form>
         </div>
-        <Button className="buttons" type="submit" onClick={() => {this.deleteContact()}}>Delete</Button>
       </div>
     );
   }

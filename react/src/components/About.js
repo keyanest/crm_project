@@ -13,7 +13,7 @@ class About extends Component {
       <Grid>
         <Row>
           <Col xs={12} md={8}>
-            <h3>ABout Us</h3>
+            <h3>Call me maybe?</h3>
           </Col>
         </Row>
       </Grid>

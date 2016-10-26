@@ -29,21 +29,20 @@ class ContactProfileItem extends Component {
 
   render() {
     return (
-      <Grid>
-        <Row className="profile">
-          <div>
-            Contact: {this.state.contact.name} {this.state.contact.last_name} <br />
-            Phone Number: {this.state.contact.phone_number} <br />
-            Email: {this.state.contact.email} <br />
-            Company: {this.state.contact.company} <br />
-            Position: {this.state.contact.position} <br />
-            Department: {this.state.contact.department} <br />
-            Last Contact: {this.state.contact.last_contact} <br />
+      <div className="container">
+        <div className="card">
+          <ul className="list-group list-group-flush">
+              <li className="list-group-item">Contact: {this.state.contact.name} {this.state.contact.last_name}</li>
+              <li className="list-group-item">Phone Number: {this.state.contact.phone_number}</li>
+              <li className="list-group-item">Email: {this.state.contact.email}</li>
+              <li className="list-group-item">Company: {this.state.contact.company}</li>
+              <li className="list-group-item">Position: {this.state.contact.position}</li>
+              <li className="list-group-item">Department: {this.state.contact.department}</li>
             <Button className="buttons" type="submit" onClick={() => {this.props.history.pushState(null, `/contacts/${this.state.contact.id}/logs`)}}>Logs</Button>
             <Button className="buttons" type="submit" onClick={() => {this.props.history.pushState(null, `/contacts/${this.state.contact.id}/edit`)}}>Edit</Button>
-          </div>
-        </Row>
-      </Grid>
+          </ul>
+        </div>
+      </div>
     )
   }
 }

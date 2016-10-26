@@ -7,26 +7,41 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: ""
+      user_tasks: []
     }
+    this.linkFormatter = this.linkFormatter.bind(this);
   }
 
   componentWillMount() {
     $.ajax({
-      url: 'api/users',
+      url: 'api/tasks',
     }).done(data => {
-      this.setState({ user: data })
+      this.setState({ user_tasks: data.user_tasks })
     })
+  }
+
+  linkFormatter(cell, row){
+    return <Link to={`/tasks/` + cell}>View</Link>;
   }
 
   render() {
     return (
       <div className="container">
-        <div className="text-center">
-          <h1>Home Page</h1>
-          Name: {this.state.user.first_name} {this.state.user.last_name} <br />
-          Email: {this.state.user.email}
-        </div>
+        <Grid>
+          <Row>
+            <div className="text-center">
+              <h3>Tasks For Today</h3>
+            </div>
+          </Row>
+          <div className="table">
+            <BootstrapTable data={this.state.user_tasks} hover={true} condensed={true} pagination={true} ignoreSinglePage={true}>
+              <TableHeaderColumn dataField="id" isKey={true} dataFormat={this.linkFormatter} dataSort={true}>Task Page</TableHeaderColumn>
+              <TableHeaderColumn dataField="name" dataSort={true}>Task</TableHeaderColumn>
+              <TableHeaderColumn dataField="assign_date" dataSort={true}>Assigned</TableHeaderColumn>
+              <TableHeaderColumn dataField="due_date" dataSort={true}>Due</TableHeaderColumn>
+            </BootstrapTable>
+          </div>
+        </Grid>
       </div>
     )
   }

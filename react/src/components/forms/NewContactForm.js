@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router';
-import { Button } from 'react-bootstrap';
+import { Button, FormGroup } from 'react-bootstrap';
 
 class NewContactForm extends Component {
   constructor(props) {
@@ -13,7 +13,6 @@ class NewContactForm extends Component {
       company: '',
       position: '',
       department: '',
-      last_contact: '',
       errors: ''
     };
     this.handleContactFromSubmit = this.handleContactFromSubmit.bind(this);
@@ -58,86 +57,77 @@ class NewContactForm extends Component {
 
   render() {
     return(
-      <div className="text-center">
+      <div className="container">
       <h1>New Contact</h1>
       <h1>{this.state.errors}</h1>
         <div>
           <form onSubmit={this.handleContactFromSubmit}>
-            <div>
+            <div className="form-control input-lg">
               <input
               type="text"
-              placeholder="first name"
+              placeholder="First Name"
               name="name"
               value={this.name}
               onChange={this.handleChange}
               />
             </div>
-            <div>
+            <div className="form-control input-lg">
               <input
               type="text"
-              placeholder="last name"
+              placeholder="Last Name"
               name="last_name"
               value={this.last_name}
               onChange={this.handleChange}
               />
             </div>
-            <div>
+            <div className="form-control input-lg">
               <input
               type="text"
-              placeholder="phone number"
+              placeholder="Phone Number"
               name="phone_number"
               value={this.phone_number}
               onChange={this.handleChange}
               />
             </div>
-            <div>
+            <div className="form-control input-lg">
               <input
               type="text"
-              placeholder="email"
+              placeholder="Email"
               name="email"
               value={this.email}
               onChange={this.handleChange}
               />
             </div>
-            <div>
+            <div className="form-control input-lg">
               <input
               type="text"
-              placeholder="company"
+              placeholder="Company"
               name="company"
               value={this.company}
               onChange={this.handleChange}
               />
             </div>
-            <div>
+            <div className="form-control input-lg">
               <input
               type="text"
-              placeholder="position"
+              placeholder="Position"
               name="position"
               value={this.position}
               onChange={this.handleChange}
               />
             </div>
-            <div>
+            <div className="form-control input-lg">
               <input
               type="text"
-              placeholder="department"
+              placeholder="Department"
               name="department"
               value={this.department}
               onChange={this.handleChange}
               />
             </div>
             <div>
-              <input
-              type="text"
-              placeholder="last contact"
-              name="last_contact"
-              value={this.last_contact}
-              onChange={this.handleChange}
-              />
+              <Button className="buttons" type="submit">Submit</Button>
             </div>
-              <div>
-                <Button className="buttons" type="submit">Submit</Button>
-              </div>
           </form>
         </div>
       </div>

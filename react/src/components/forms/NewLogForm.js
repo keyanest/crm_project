@@ -46,12 +46,12 @@ class NewLogForm extends Component {
 
   render() {
     return(
-      <div className="text-center">
+      <div className="container">
         <h1>New Log</h1>
         <h1>{this.state.errors}</h1>
         <div>
           <form onSubmit={this.handleContactFromSubmit}>
-            <div>
+            <div className="form-control input-lg">
               <input
               type="text"
               placeholder="Log Name"
@@ -60,7 +60,7 @@ class NewLogForm extends Component {
               onChange={this.handleChange}
               />
             </div>
-            <div>
+            <div className="form-control input-lg">
               <input
               type="text"
               placeholder="Notes"

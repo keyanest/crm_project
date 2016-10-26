@@ -33,8 +33,9 @@ class Tasks extends Component {
             </div>
           </Row>
           <div className="table">
-            <BootstrapTable data={this.state.tasks} striped={true} hover={true}>
-              <TableHeaderColumn dataField="id" isKey={true} dataFormat={this.linkFormatter} dataSort={true}>Task Page</TableHeaderColumn>
+            <BootstrapTable data={this.state.tasks} hover={true} condensed={true} pagination={true} search={true} ignoreSinglePage={true}>
+              <TableHeaderColumn dataField="id" dataFormat={this.linkFormatter} dataSort={true}>Task Page</TableHeaderColumn>
+              <TableHeaderColumn dataField="id" isKey={true} dataSort={true}>ID</TableHeaderColumn>
               <TableHeaderColumn dataField="name" dataSort={true}>Task</TableHeaderColumn>
               <TableHeaderColumn dataField="assign_date" dataSort={true}>Assigned</TableHeaderColumn>
               <TableHeaderColumn dataField="due_date" dataSort={true}>Due</TableHeaderColumn>

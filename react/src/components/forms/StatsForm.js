@@ -46,10 +46,10 @@ class StatsForm extends Component {
 
   render() {
     return(
-      <div className="text-center">
+      <div className="container">
       <h1>New Stats</h1>
       <form onSubmit={this.handleStatFromSubmit}>
-        <div>
+        <div className="form-control input-lg">
           <input
           type="number"
           placeholder="Calls Made"
@@ -57,7 +57,7 @@ class StatsForm extends Component {
           onChange={this.handleChange}
           />
         </div>
-        <div>
+        <div className="form-control input-lg">
           <input
           type="number"
           placeholder="Contacts Made"
@@ -65,7 +65,7 @@ class StatsForm extends Component {
           onChange={this.handleChange}
           />
         </div>
-        <div>
+        <div className="form-control input-lg">
           <input
           type="number"
           placeholder="Meetings Set"
@@ -73,7 +73,7 @@ class StatsForm extends Component {
           onChange={this.handleChange}
           />
         </div>
-        <div>
+        <div className="form-control input-lg">
           <input
           type="number"
           placeholder="Deals Won"
@@ -81,7 +81,7 @@ class StatsForm extends Component {
           onChange={this.handleChange}
           />
         </div>
-        <div>
+        <div className="form-control input-lg">
           <input
           type="number"
           placeholder="Deals Lost"

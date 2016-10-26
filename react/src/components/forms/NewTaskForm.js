@@ -75,12 +75,12 @@ class NewTaskForm extends Component {
 
   render() {
     return(
-      <div className="text-center">
+      <div className="container">
       <h1>New Task</h1>
       <h1>{this.state.errors}</h1>
         <div>
           <form onSubmit={this.handleTaskFromSubmit}>
-            <div>
+            <div className="form-control input-lg">
               <input
               type="text"
               placeholder="Title"
@@ -89,7 +89,7 @@ class NewTaskForm extends Component {
               onChange={this.handleChange}
               />
             </div>
-            <div>
+            <div className="form-control input-lg">
               <input
               type="text"
               placeholder="Body"
@@ -98,7 +98,7 @@ class NewTaskForm extends Component {
               onChange={this.handleChange}
               />
             </div>
-            <div>
+            <div className="form-control input-lg">
               <input
                 type="date"
                 placeholder="Due Date"
@@ -107,7 +107,7 @@ class NewTaskForm extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div>
+            <div className="form-control input-lg">
               <label>
                 <input
                 type="radio"
@@ -117,24 +117,15 @@ class NewTaskForm extends Component {
                 />
                 Send Reminder
               </label>
-              <br/>
-              <label>
-                <input
-                type="radio"
-                name="send_email"
-                value={false}
-                onChange={this.handleChange}
-                />
-                Do Not Send Reminder
-              </label>
             </div>
-            <div>
+            <div className="form-control input-lg">
               <Search
                 items={this.state.contactSuggestions}
                 placeholder='Choose Contact'
                 onKeyChange={this.onKeyChange}
               />
             </div>
+            <br /> <br /> <br />
             <div>
               <Button className="buttons" type="submit">Submit</Button>
             </div>

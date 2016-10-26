@@ -3,6 +3,7 @@ class Api::TasksController < ApiController
   def index
     tasks = []
     completed_tasks = []
+    user_tasks = []
     arr = current_user.tasks.order!(created_at: :desc)
     arr.each do |t|
       if t.completed == false
@@ -11,7 +12,12 @@ class Api::TasksController < ApiController
         completed_tasks << t
       end
     end
-    render json: { tasks: tasks, completed_tasks: completed_tasks }
+    arr.each do |c|
+      if c.user == current_user && c.due_date == Date.today
+        user_tasks << c
+      end
+    end
+    render json: { tasks: tasks, completed_tasks: completed_tasks, user_tasks: user_tasks }
   end
 
   def show
