@@ -2,6 +2,7 @@ class Api::StatsController < ApiController
 
   def index
     stats = current_user.stats
+    binding.pry
     render json: stats
   end
 
