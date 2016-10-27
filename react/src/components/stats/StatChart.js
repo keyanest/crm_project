@@ -7,7 +7,19 @@ import testdata from '../testdata';
 class StatChart extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      stats: []
+    };
   }
+
+  componentWillMount() {
+    $.ajax({
+      url: 'api/stats',
+    }).done(dat => {
+      this.setState({ stats: data })
+    })
+  }
+
   render () {
   	return (
       <div className="text-center">

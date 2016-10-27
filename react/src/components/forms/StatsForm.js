@@ -9,6 +9,7 @@ class StatsForm extends Component {
       calls_made: "",
       contacts_made: "",
       meetings_set: "",
+      opportunities: "",
       deals_won: "",
       deals_lost: "",
     };
@@ -23,6 +24,7 @@ class StatsForm extends Component {
        calls_made: this.state.calls_made,
        contacts_made: this.state.contacts_made,
        meetings_set: this.state.meetings_set,
+       opportunities: this.state.opportunities,
        deals_won: this.state.deals_won,
        deals_lost: this.state.deals_lost,
      }}
@@ -70,6 +72,14 @@ class StatsForm extends Component {
           type="number"
           placeholder="Meetings Set"
           name="meetings_set"
+          onChange={this.handleChange}
+          />
+        </div>
+        <div className="form-control input-lg">
+          <input
+          type="number"
+          placeholder="Opportunities"
+          name="opportunities"
           onChange={this.handleChange}
           />
         </div>

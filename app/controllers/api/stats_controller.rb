@@ -1,5 +1,10 @@
 class Api::StatsController < ApiController
 
+  def index
+    stats = current_user.stats
+    render json: stats
+  end
+
   def create
     stat = Stat.new(stat_params)
     stat.date = Date.today
