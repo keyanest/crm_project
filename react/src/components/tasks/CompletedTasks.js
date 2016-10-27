@@ -33,7 +33,7 @@ class CompletedTasks extends Component {
           </div>
         </Row>
         <div className="table">
-          <BootstrapTable data={this.state.completed_tasks} striped={true} hover={true}>
+          <BootstrapTable data={this.state.completed_tasks} hover={true} condensed={true} pagination={true} search={true} ignoreSinglePage={true}>
           <TableHeaderColumn dataField="contact_id" isKey={true} dataFormat={this.linkFormatter} dataSort={true}></TableHeaderColumn>
           <TableHeaderColumn dataField="name" dataSort={true}>Task</TableHeaderColumn>
           <TableHeaderColumn dataField="body" dataSort={true}>Notes</TableHeaderColumn>

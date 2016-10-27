@@ -34,8 +34,9 @@ class Contacts extends Component {
           </div>
         </Row>
         <div>
-          <BootstrapTable data={this.state.contacts} hover={true} condensed={true} pagination={true}>
-            <TableHeaderColumn dataField="id" isKey={true} dataFormat={this.linkFormatter} dataSort={true}>Profile Page</TableHeaderColumn>
+          <BootstrapTable data={this.state.contacts} hover={true} condensed={true} pagination={true} search={true}>
+            <TableHeaderColumn dataField="id" dataFormat={this.linkFormatter} dataSort={true}>Profile Page</TableHeaderColumn>
+            <TableHeaderColumn dataField="id" isKey={true} dataSort={true}>ID</TableHeaderColumn>
             <TableHeaderColumn dataField="name" dataSort={true}>First Name</TableHeaderColumn>
             <TableHeaderColumn dataField="last_name" dataSort={true}>Last Name</TableHeaderColumn>
             <TableHeaderColumn dataField="company" dataSort={true}>Company</TableHeaderColumn>

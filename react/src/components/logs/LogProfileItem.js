@@ -30,21 +30,21 @@ class LogProfileItem extends Component {
 
   render() {
     return (
-      <Grid>
-        <Row className="profile">
-          <Col xs={6} md={4}>
-            Log: {this.state.log.name} <br />
-            Date: {this.state.log.log_date} <br />
-            Notes: {this.state.log.notes} <br />
-            Contact: &nbsp;
+      <div className="container">
+        <div className="card">
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">Log: {this.state.log.name}</li>
+            <li className="list-group-item">Date: {this.state.log.log_date}</li>
+            <li className="list-group-item">Notes: {this.state.log.notes}</li>
+            <li className="list-group-item">Contact: &nbsp;
             <Link to={`contacts/${this.state.contact.id}`}>
             {this.state.contact.name} {this.state.contact.last_name}
-            </Link> <br />
-            Phone Number: {this.state.contact.phone_number} <br />
+            </Link></li>
+            <li className="list-group-item">Phone Number: {this.state.contact.phone_number}</li>
             <button type="submit" onClick={() => {this.deleteLog()}}>Delete</button>
-          </Col>
-        </Row>
-      </Grid>
+          </ul>
+        </div>
+      </div>
     )
   }
 }

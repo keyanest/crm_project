@@ -29,8 +29,9 @@ class Logs extends Component {
           </div>
         </Row>
         <div className="table">
-          <BootstrapTable data={this.state.logs} striped={true} hover={true}>
-            <TableHeaderColumn dataField="name" isKey={true} dataSort={true}>Log</TableHeaderColumn>
+          <BootstrapTable data={this.state.logs} hover={true} condensed={true} pagination={true} search={true} ignoreSinglePage={true}>
+            <TableHeaderColumn dataField="name" dataSort={true}>Log</TableHeaderColumn>
+            <TableHeaderColumn dataField="id" isKey={true} dataSort={true}>ID</TableHeaderColumn>
             <TableHeaderColumn dataField="notes" dataSort={true}>Notes</TableHeaderColumn>
             <TableHeaderColumn dataField="log_date" dataSort={true}>Date</TableHeaderColumn>
           </BootstrapTable>

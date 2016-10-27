@@ -4,39 +4,42 @@
 
 html {
     position: relative;
-    min-height: 100%;
+    height: 100%;
 }
 
 body{
-  background-color: #F5F3EE;
   opacity: 0.9;
   height: 100%;
+  margin-bottom: 60px;
+  background-color: #e5e5f2;
+  margin-left: 5px;
+  margin-right: 5px;
 }
+
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Corben', Georgia, Times, serif;
+    font-family: 'Lato';
     font: #4A96AD;
     text-shadow: 1px 1px 1px #ccc;
-
 }
 p, div {
-    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+    font-family: 'Lato';
 }
 
 .nav {
-    background-color: #CFDBC5;
-    background-size: cover;
     box-shadow: 1px 1px 1px #aaa;
-    border-radius: 1px
+    border-radius: 1px;
+    margin-top: 10px;
 }
 
 .profile {
   background-color: #F5F3EE;
   box-shadow: 1px 1px 1px #aaa;
   padding: 10px;
-  border-radius: 5px
+  border-radius: 5px;
+  margin: 20px;
 }
 
-.whole {
+.back_color {
   background-color: #FFFFFF;
 }
 
@@ -46,18 +49,40 @@ p, div {
   left: 45%;
 }
 
+img {
+  max-width:172.5;
+  max-height:71.25px
+}
+
 .buttons {
-  box-shadow: 1px 1px 1px #aaa;
-  border-radius: 10px;
+  border-radius: 5px;
+  margin: 3px;
+  background-color: white;
 }
 
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
-  height: 60px
+  height: 60px;
+  margin-top: 60px;
+  background-color: #999999;
+  clear: both;
+  margin-bottom: 0px;
+  padding-top: 10px;
 }
 
-.pull-right {
-  float: right;
+#content {
+  min-height: 100%;
+  height: auto;
+  position: relative;
+
+}
+
+#logger {
+  font-size: 20px;
+}
+
+.charts {
+  display: flex;
 }
