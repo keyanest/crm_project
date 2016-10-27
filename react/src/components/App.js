@@ -20,16 +20,16 @@ class App extends Component {
             <Dropdown>
               <Dropdown.Toggle>
               </Dropdown.Toggle>
-              <Dropdown.Menu eventKey={1} title={burger} id="basic-nav-dropdown">
-                <MenuItem eventKey={1.1} href="#" onClick={() => {this.props.history.pushState(null, '/')}}>Home</MenuItem>
-                <MenuItem eventKey={1.2} href="#" onClick={() => {this.props.history.pushState(null, 'contacts')}}>My Contacts</MenuItem>
-                <MenuItem eventKey={1.3} href="#" onClick={() => {this.props.history.pushState(null, 'tasks')}}>My Tasks</MenuItem>
-                <MenuItem eventKey={1.3} href="#" onClick={() => {this.props.history.pushState(null, 'tasks/complete')}}>Completed Tasks</MenuItem>
-                <MenuItem eventKey={1.4} href="#" onClick={() => {this.props.history.pushState(null, 'tasks/new')}}>New Task</MenuItem>
-                <MenuItem eventKey={1.5} href="#" onClick={() => {this.props.history.pushState(null, 'contacts/new')}}>New Contact</MenuItem>
-                <MenuItem eventKey={1.6} href="#" onClick={() => {this.props.history.pushState(null, 'stats')}}>Your Stats</MenuItem>
-                <MenuItem eventKey={1.7} href="#" onClick={() => {this.props.history.pushState(null, 'about')}}>Contact Us</MenuItem>
-                <MenuItem eventKey={1.8} href="#" onClick={() => {this.props.history.pushState(null, 'signoff')}}>Sign Out</MenuItem>
+              <Dropdown.Menu id={1} title={burger} id="basic-nav-dropdown">
+                <MenuItem id={2} href="#" onClick={() => {this.props.history.pushState(null, '/')}}>Home</MenuItem>
+                <MenuItem id={3} href="#" onClick={() => {this.props.history.pushState(null, 'contacts')}}>My Contacts</MenuItem>
+                <MenuItem id={4} href="#" onClick={() => {this.props.history.pushState(null, 'tasks')}}>My Tasks</MenuItem>
+                <MenuItem id={5} href="#" onClick={() => {this.props.history.pushState(null, 'tasks/complete')}}>Completed Tasks</MenuItem>
+                <MenuItem id={6} href="#" onClick={() => {this.props.history.pushState(null, 'tasks/new')}}>New Task</MenuItem>
+                <MenuItem id={7} href="#" onClick={() => {this.props.history.pushState(null, 'contacts/new')}}>New Contact</MenuItem>
+                <MenuItem id={8} href="#" onClick={() => {this.props.history.pushState(null, 'stats')}}>Your Stats</MenuItem>
+                <MenuItem id={9} href="#" onClick={() => {this.props.history.pushState(null, 'about')}}>Contact Us</MenuItem>
+                <MenuItem id={10} href="#" onClick={() => {this.props.history.pushState(null, 'signoff')}}>Sign Out</MenuItem>
               </Dropdown.Menu>
             </Dropdown>
           </Nav>

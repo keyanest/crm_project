@@ -155,7 +155,7 @@ class EditContactForm extends Component {
               />
             </div>
             <div>
-              <Button className="buttons" type="submit">Submit</Button>
+              <Button className="buttons" type="submit">Done</Button>
               <Button className="buttons" onClick={() => {this.deleteContact()}}>Delete</Button>
             </div>
           </form>
