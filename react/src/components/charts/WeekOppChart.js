@@ -1,11 +1,11 @@
 import { Chart } from 'react-google-charts';
 import React, { Component } from 'react';
 
-class MonthCallChart extends Component {
+class WeekOppChart extends Component {
   constructor(props){
     super(props);
     this.state = {
-      month: []
+      week: []
     }
   }
 
@@ -13,15 +13,15 @@ class MonthCallChart extends Component {
     $.ajax({
       url: "api/stats",
     }).done(data => {
-      this.setState({ month: data.month })
+      this.setState({ week: data.week })
     })
   }
 
 
   render() {
-      let data = this.state.month.map(m => {
+      let data = this.state.week.map(m => {
         return(
-          [m.contacts_made, m.calls_made]
+          [m.deals_won, m.deals_lost]
         )
       })
 
@@ -33,17 +33,17 @@ class MonthCallChart extends Component {
        columns={[
          {
            'type': 'number',
-           'label': 'Contacts'
+           'label': 'Won'
          },
          {
            'type': 'number',
-           'label': 'Attempts'
+           'label': 'Lost'
          }
        ]}
        options={{
-         title: 'Month',
-         hAxis: {title: 'Contacts', minValue: 0, maxValue: 20},
-         vAxis: {title: 'Attempts', minValue: 50, maxValue: 125},
+         title: 'Week',
+         hAxis: {title: 'Won', minValue: 0, maxValue: 5},
+         vAxis: {title: 'Lost', minValue: 0, maxValue: 5},
        }}
        width="100%"
        height="400px"
@@ -55,4 +55,4 @@ class MonthCallChart extends Component {
     }
   }
 };
-export default MonthCallChart;
+export default WeekOppChart;

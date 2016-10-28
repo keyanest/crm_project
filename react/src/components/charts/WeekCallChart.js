@@ -1,41 +1,58 @@
-import {Chart} from 'react-google-charts';
+import { Chart } from 'react-google-charts';
 import React, { Component } from 'react';
 
 class WeekCallChart extends Component {
   constructor(props){
     super(props);
-    this.state={
-      options: {
-          title: 'Week',
-          hAxis: {title: 'Contacts', minValue: 0, maxValue: 20},
-          vAxis: {title: 'Attempts', minValue: 50, maxValue: 125},
-          legend: 'none'
-      },
-      rows: [
-          [ 58,      112],
-          [ 54,      45.5],
-          [ 111,     114],
-          [ 64,      35],
-          [ 73,      43.5],
-          [ 86.5,    57]
-      ],
-      columns: [
-       {
-       'type': 'number',
-       'label' : 'Age'
-       },
-       {
-       'type' : 'number',
-       'label' : 'Weight'
-       }
-      ]
+    this.state = {
+      week: []
     }
   }
-  render() {
-      return (
 
-        <Chart chartType="BarChart" rows={this.state.rows} columns={this.state.columns} options={this.state.options}  width={"100%"} height={"400px"} />
+  componentDidMount() {
+    $.ajax({
+      url: "api/stats",
+    }).done(data => {
+      this.setState({ week: data.week })
+    })
+  }
+
+
+  render() {
+      let data = this.state.week.map(m => {
+        return(
+          [m.contacts_made, m.calls_made]
+        )
+      })
+
+      if(data.length > 0){
+      return (
+     <Chart
+       chartType="ColumnChart"
+       rows={data}
+       columns={[
+         {
+           'type': 'number',
+           'label': 'Contacts'
+         },
+         {
+           'type': 'number',
+           'label': 'Attempts'
+         }
+       ]}
+       options={{
+         title: 'Week',
+         hAxis: {title: 'Contacts', minValue: 0, maxValue: 20},
+         vAxis: {title: 'Attempts', minValue: 50, maxValue: 125},
+       }}
+       width="100%"
+       height="400px"
+       legend_toggle
+      />
       );
+    } else {
+      return(<h1> Loading... </h1>)
+    }
   }
 };
 export default WeekCallChart;
