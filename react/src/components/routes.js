@@ -16,7 +16,11 @@ import TaskProfileItem from './tasks/TaskProfileItem';
 import NewTaskForm from './forms/NewTaskForm';
 import EditTaskForm from './forms/EditTaskForm';
 import CompletedTasks from './tasks/CompletedTasks';
-import StatChart from './stats/StatChart';
+import ChartMain from './charts/ChartMain';
+import MonthCallChart from './charts/MonthCallChart';
+import WeekCallChart from './charts/WeekCallChart';
+import MonthOppChart from './charts/MonthOppChart';
+import WeekOppChart from './charts/WeekOppChart';
 import StatsForm from './forms/StatsForm';
 import SignOff from './SignOff';
 
@@ -27,8 +31,13 @@ module.exports = (
       <Route path="/about" component={About}/>
       <Route path="/contact" component={AppContact}/>
       <Route path="/signoff" component={SignOff}/>
-      <Route path="/stats" component={StatChart}/>
-      <Route path="/stats/new" component={StatsForm}/>
+      <Route path="/stats" component={ChartMain}>
+        <Route path="/stats/weekcalls" component={WeekCallChart}/>
+        <Route path="/stats/monthcalls" component={MonthCallChart}/>
+        <Route path="/stats/weekopps" component={WeekOppChart}/>
+        <Route path="/stats/monthopps" component={MonthOppChart}/>
+        <Route path="/stats/new" component={StatsForm}/>
+      </Route>
       <Route path="/contacts" component={Contacts}/>
       <Route path="/contacts/new" component={NewContactForm}/>
       <Route path="/contacts/:id/edit" component={EditContactForm}/>

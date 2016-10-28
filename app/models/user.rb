@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :tasks
   has_many :contacts
   has_many :logs
+  has_many :stats
 
   validates_uniqueness_of :email
   validates :first_name, presence: true

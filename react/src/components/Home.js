@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { Grid, Row, Col } from 'react-bootstrap';
-import testdata from './testdata';
-import { LineChart, BarChart, Bar, AreaChart, Area, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 class Home extends Component {
   constructor(props) {
@@ -41,36 +39,7 @@ class Home extends Component {
             <TableHeaderColumn dataField="due_date" dataSort={true}>Due</TableHeaderColumn>
           </BootstrapTable>
         </div>
-        <div className="charts">
-          <div className="row">
-            <div className="col-md-6">
-              <AreaChart width={550} height={400} data={testdata}
-                    margin={{top: 10, right: 30, left: 0, bottom: 0}}>
-                <XAxis dataKey="name"/>
-                <YAxis/>
-                <CartesianGrid strokeDasharray="3 3"/>
-                <Tooltip/>
-                <Area type='monotone' dataKey='uv' stackId="1" stroke='#8884d8' fill='#8884d8' />
-                <Area type='monotone' dataKey='pv' stackId="1" stroke='#82ca9d' fill='#82ca9d' />
-                <Area type='monotone' dataKey='amt' stackId="1" stroke='#ffc658' fill='#ffc658' />
-              </AreaChart>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-6 right-align">
-              <AreaChart width={550} height={400} data={testdata}
-                    margin={{top: 10, right: 30, left: 0, bottom: 0}}>
-                <XAxis dataKey="name"/>
-                <YAxis/>
-                <CartesianGrid strokeDasharray="3 3"/>
-                <Tooltip/>
-                <Area type='monotone' dataKey='uv' stackId="1" stroke='#8884d8' fill='#8884d8' />
-                <Area type='monotone' dataKey='pv' stackId="1" stroke='#82ca9d' fill='#82ca9d' />
-                <Area type='monotone' dataKey='amt' stackId="1" stroke='#ffc658' fill='#ffc658' />
-              </AreaChart>
-            </div>
-          </div>
-        </div>
+        <Link to={'stats/new'}>Add Stats</Link>
       </div>
     )
   }
