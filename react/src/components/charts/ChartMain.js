@@ -9,8 +9,9 @@ class ChartMain extends Component {
     this.handleSelect = this.handleSelect.bind(this);
   }
 
-  handleSelect(eventKey) {
+  handleSelect(event) {
   event.preventDefault();
+  return null
 };
 
   render() {

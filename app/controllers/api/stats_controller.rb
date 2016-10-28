@@ -2,7 +2,9 @@ class Api::StatsController < ApiController
 
   def index
     stats = current_user.stats
-    render json: stats
+    week = stats.where(:date => 1.week.ago..Time.now)
+    month = stats.where(:date => 4.week.ago..Time.now)
+    render json: { week: week, month: month }
   end
 
   def create
@@ -16,5 +18,7 @@ class Api::StatsController < ApiController
 
   private
 
-  params.require(:stat).permit(:calls_made, :contacts_made, :meetings_set, :deals_won, :deals_lost)
+  def stat_params
+    params.require(:stat).permit(:calls_made, :contacts_made, :opportunities, :deals_won, :deals_lost)
+  end
 end

@@ -18,10 +18,9 @@ class ContactProfileItem extends Component {
     history: React.PropTypes.func.isRequired
  };
 
-  componentWillMount(){
-    let id = this.props.params.id
+  componentWillMount() {
     $.ajax({
-      url: "api/contacts/" + id,
+      url: `api/contacts/${this.props.params.id}`,
     }).done(data => {
       this.setState({ contact: data.contact, logs: data.logs, tasks: data.tasks })
     })

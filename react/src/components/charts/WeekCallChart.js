@@ -34,7 +34,7 @@ class WeekCallChart extends Component {
   render() {
       return (
 
-        <Chart chartType="BarChart" rows={this.state.rows} columns={this.state.columns} options={this.state.options} graph_id="ScatterChart"  width={"100%"} height={"400px"}  legend_toggle={true} />
+        <Chart chartType="BarChart" rows={this.state.rows} columns={this.state.columns} options={this.state.options}  width={"100%"} height={"400px"} />
       );
   }
 };
