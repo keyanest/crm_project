@@ -59,5 +59,3 @@ class StatChart extends Component {
     );
   }
 }
-
-export default StatChart;

@@ -12,33 +12,16 @@ class NewTaskForm extends Component {
       due_date: '',
       send_email: false,
       contact: '',
-      contactSuggestions: [],
       errors: ''
     };
     this.handleTaskFromSubmit = this.handleTaskFromSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.onKeyChange = this.onKeyChange.bind(this);
   }
 
   contextTypes: {
     history: React.PropTypes.func.isRequired
  };
 
- componentWillMount() {
-   let obj = {};
-   let arr = [];
-   $.ajax({
-     url: "api/contacts"
-   }).done(data => {
-     for (var i = 0; i < data.length; i++) {
-      obj = {id: data[i].id, value: `${data[i].name} ${data[i].last_name}`}
-      arr.push(obj)
-     }
-     this.setState({
-       contactSuggestions: arr
-     })
-   });
- }
 
   handleTaskFromSubmit(event) {
    event.preventDefault();
@@ -67,10 +50,6 @@ class NewTaskForm extends Component {
     let nextState = {};
     nextState[event.target.name] = event.target.value;
     this.setState(nextState);
-  }
-
-  onKeyChange(event) {
-    this.setState({ contact: event})
   }
 
   render() {
@@ -115,17 +94,18 @@ class NewTaskForm extends Component {
                 value={true}
                 onChange={this.handleChange}
                 />
-                Send Reminder
+                &nbsp; Send Reminder
               </label>
             </div>
             <div className="form-control input-lg">
-              <Search
-                items={this.state.contactSuggestions}
-                placeholder='Choose Contact'
-                onKeyChange={this.onKeyChange}
-              />
+            <input
+              type="text"
+              placeholder="Contact Name"
+              name="contact"
+              value={this.state.contact}
+              onChange={this.handleChange}
+            />
             </div>
-            <br /> <br /> <br />
             <div>
               <Button className="buttons" type="submit">Submit</Button>
             </div>
