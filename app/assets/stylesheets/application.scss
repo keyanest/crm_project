@@ -47,8 +47,6 @@ p, div {
   position: absolute;
   display: block;
   margin: 0 auto;
-  top: 10px;
-  left: 47%;
 }
 
 img {
@@ -87,4 +85,12 @@ img {
 
 .charts {
   display: flex;
+}
+
+.center-block {
+display: block;
+margin-right: auto;
+margin-left: auto;
+margin-top: 10px;
+margin-bottom: 0;
 }
