@@ -11,5 +11,7 @@ class Api::StatsController < ApiController
 
   private
 
-  params.require(:stat).permit(:calls_made, :contacts_made, :meetings_set, :deals_won, :deals_lost)
+  def stat_params
+    params.require(:stat).permit(:calls_made, :contacts_made, :meetings_set, :deals_won, :deals_lost)
+  end
 end
