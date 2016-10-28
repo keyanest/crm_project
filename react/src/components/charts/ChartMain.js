@@ -5,7 +5,6 @@ import { NavItem, Nav } from 'react-bootstrap';
 class ChartMain extends Component {
   constructor(props){
     super(props);
-
     this.handleSelect = this.handleSelect.bind(this);
   }
 

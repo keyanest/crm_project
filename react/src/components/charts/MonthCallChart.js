@@ -19,16 +19,33 @@ class MonthCallChart extends Component {
 
 
   render() {
+    let data;
+    if (this.state.month.length > 0) {
+      data = this.state.month.map(m => {
+        return(
+          [m.contacts_made, m.calls_made]
+        )
+      })
+    }
       return (
      <Chart
        chartType="BarChart"
-       data={[['Contacts', 'Attempts'], [100, 5], [90, 8]]}
+       rows={data}
+       columns={[
+         {
+           'type': 'number',
+           'label': 'Contacts'
+         },
+         {
+           'type': 'number',
+           'label': 'Attempts'
+         }
+       ]}
        options={{
          title: 'Week',
          hAxis: {title: 'Contacts', minValue: 0, maxValue: 20},
          vAxis: {title: 'Attempts', minValue: 50, maxValue: 125},
        }}
-       graph_id="ScatterChart"
        width="100%"
        height="400px"
        legend_toggle
