@@ -28,8 +28,6 @@ class App extends Component {
                 <MenuItem id={6} href="#" onClick={() => {this.props.history.pushState(null, 'tasks/new')}}>New Task</MenuItem>
                 <MenuItem id={7} href="#" onClick={() => {this.props.history.pushState(null, 'contacts/new')}}>New Contact</MenuItem>
                 <MenuItem id={8} href="#" onClick={() => {this.props.history.pushState(null, 'stats')}}>Your Stats</MenuItem>
-                <MenuItem id={9} href="#" onClick={() => {this.props.history.pushState(null, 'about')}}>Contact Us</MenuItem>
-                <MenuItem id={10} href="#" onClick={() => {this.props.history.pushState(null, 'signoff')}}>Sign Out</MenuItem>
               </Dropdown.Menu>
             </Dropdown>
           </Nav>
