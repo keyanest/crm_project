@@ -4,6 +4,7 @@ import App from './App';
 import Home from './Home'
 import AppContact from './AppContact';
 import About from './About';
+import SignOff from './SignOff';
 import Contacts from './contacts/Contacts';
 import ContactProfileItem from './contacts/ContactProfileItem';
 import NewContactForm from './forms/NewContactForm';
@@ -22,14 +23,11 @@ import WeekCallChart from './charts/WeekCallChart';
 import MonthOppChart from './charts/MonthOppChart';
 import WeekOppChart from './charts/WeekOppChart';
 import StatsForm from './forms/StatsForm';
-import SignOff from './SignOff';
 
 module.exports = (
   <Route>
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
-      <Route path="/about" component={About}/>
-      <Route path="/contact" component={AppContact}/>
       <Route path="/signoff" component={SignOff}/>
       <Route path="/stats" component={ChartMain}>
         <Route path="/stats/weekcalls" component={WeekCallChart}/>
