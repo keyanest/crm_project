@@ -45,7 +45,6 @@ module.exports = (
       <Route path="/tasks/complete" component={CompletedTasks}/>
       <Route path="/tasks/:id" component={TaskProfileItem}/>
       <Route path="/tasks/:id/edit" component={EditTaskForm}/>
-      <Route path="/signoff" component={SignOff}/>
     </Route>
   </Route>
 )
