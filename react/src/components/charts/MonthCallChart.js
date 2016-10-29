@@ -25,7 +25,6 @@ class MonthCallChart extends Component {
         )
       })
 
-      if(data.length > 0){
       return (
      <Chart
        chartType="ColumnChart"
@@ -50,9 +49,6 @@ class MonthCallChart extends Component {
        legend_toggle
       />
       );
-    } else {
-      return(<h1 className="container"> Loading... </h1>)
-    }
   }
 };
 export default MonthCallChart;

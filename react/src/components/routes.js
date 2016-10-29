@@ -20,6 +20,7 @@ import WeekCallChart from './charts/WeekCallChart';
 import MonthOppChart from './charts/MonthOppChart';
 import WeekOppChart from './charts/WeekOppChart';
 import StatsForm from './forms/StatsForm';
+import SignOff from './SignOff';
 
 module.exports = (
   <Route>
@@ -44,6 +45,7 @@ module.exports = (
       <Route path="/tasks/complete" component={CompletedTasks}/>
       <Route path="/tasks/:id" component={TaskProfileItem}/>
       <Route path="/tasks/:id/edit" component={EditTaskForm}/>
+      <Route path="/signoff" component={SignOff}/>
     </Route>
   </Route>
 )
