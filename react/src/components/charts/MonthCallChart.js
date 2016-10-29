@@ -1,6 +1,5 @@
 import { Chart } from 'react-google-charts';
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router';
 
 class MonthCallChart extends Component {
   constructor(props){
@@ -26,6 +25,7 @@ class MonthCallChart extends Component {
         )
       })
 
+      if(data.length > 0){
       return (
      <Chart
        chartType="ColumnChart"
@@ -50,6 +50,9 @@ class MonthCallChart extends Component {
        legend_toggle
       />
       );
+    } else {
+      return(<h1 className="container"> Loading... </h1>)
+    }
   }
 };
 export default MonthCallChart;
