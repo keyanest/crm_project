@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 import App from './App';
 import Home from './Home'
+import SignOff from './SignOff';
 import Contacts from './contacts/Contacts';
 import ContactProfileItem from './contacts/ContactProfileItem';
 import NewContactForm from './forms/NewContactForm';
@@ -20,7 +21,6 @@ import WeekCallChart from './charts/WeekCallChart';
 import MonthOppChart from './charts/MonthOppChart';
 import WeekOppChart from './charts/WeekOppChart';
 import StatsForm from './forms/StatsForm';
-import SignOff from './SignOff';
 
 module.exports = (
   <Route>

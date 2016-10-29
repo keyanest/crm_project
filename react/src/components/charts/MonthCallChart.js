@@ -1,5 +1,6 @@
 import { Chart } from 'react-google-charts';
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router';
 
 class MonthCallChart extends Component {
   constructor(props){

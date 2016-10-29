@@ -18,6 +18,7 @@ class SignOff extends Component {
   render () {
     return (
       <div>
+        Signing Off...
       </div>
     );
   }

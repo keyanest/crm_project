@@ -12,7 +12,6 @@ class App extends Component {
   history: React.PropTypes.object.isRequired,
 };
   render () {
-    let burger = <i class="fa fa-bars" aria-hidden="true"></i>
     return (
       <div className="back_color">
         <div className="container-fluid" id="content">
@@ -20,7 +19,7 @@ class App extends Component {
             <Dropdown>
               <Dropdown.Toggle>
               </Dropdown.Toggle>
-              <Dropdown.Menu id={1} title={burger} id="basic-nav-dropdown">
+              <Dropdown.Menu id={1} id="basic-nav-dropdown">
                 <MenuItem id={2} href="#" onClick={() => {this.props.history.pushState(null, '/')}}>Home</MenuItem>
                 <MenuItem id={3} href="#" onClick={() => {this.props.history.pushState(null, 'contacts')}}>My Contacts</MenuItem>
                 <MenuItem id={4} href="#" onClick={() => {this.props.history.pushState(null, 'tasks')}}>My Tasks</MenuItem>
