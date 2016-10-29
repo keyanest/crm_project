@@ -26,13 +26,6 @@ module.exports = (
   <Route>
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
-      <Route path="/stats" component={ChartMain}>
-        <Route path="/stats/weekcalls" component={WeekCallChart}/>
-        <Route path="/stats/monthcalls" component={MonthCallChart}/>
-        <Route path="/stats/weekopps" component={WeekOppChart}/>
-        <Route path="/stats/monthopps" component={MonthOppChart}/>
-        <Route path="/stats/new" component={StatsForm}/>
-      </Route>
       <Route path="/contacts" component={Contacts}/>
       <Route path="/contacts/new" component={NewContactForm}/>
       <Route path="/contacts/:id/edit" component={EditContactForm}/>
@@ -45,6 +38,13 @@ module.exports = (
       <Route path="/tasks/complete" component={CompletedTasks}/>
       <Route path="/tasks/:id" component={TaskProfileItem}/>
       <Route path="/tasks/:id/edit" component={EditTaskForm}/>
+      <Route path="/stats" component={ChartMain}>
+        <Route path="/stats/weekcalls" component={WeekCallChart}/>
+        <Route path="/stats/monthcalls" component={MonthCallChart}/>
+        <Route path="/stats/weekopps" component={WeekOppChart}/>
+        <Route path="/stats/monthopps" component={MonthOppChart}/>
+        <Route path="/stats/new" component={StatsForm}/>
+      </Route>
     </Route>
   </Route>
 )
