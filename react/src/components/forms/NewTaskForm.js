@@ -12,12 +12,13 @@ class NewTaskForm extends Component {
       body: '',
       due_date: '',
       send_email: false,
-      search_contacts: [],
       contact: '',
+      contactSuggestions: [],
       errors: ''
     };
     this.handleTaskFromSubmit = this.handleTaskFromSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.onKeyChange = this.onKeyChange.bind(this);
   }
 
   contextTypes: {
@@ -25,11 +26,19 @@ class NewTaskForm extends Component {
  };
 
   componentWillMount() {
+    let obj = {};
+    let arr = [];
     $.ajax({
       url: "api/contacts",
       type: 'GET',
     }).done(data => {
-      this.setState({ search_contacts: data });
+      for (var i = 0; i < data.length; i++) {
+        obj = {id: data[i].id, value: `${data[i].name} ${data[i].last_name}`}
+        arr.push(obj)
+      };
+    })
+    this.setState({
+      contactSuggestions: arr
     })
   }
 
@@ -63,12 +72,11 @@ class NewTaskForm extends Component {
     this.setState(nextState);
   }
 
+  onKeyChange(event) {
+    this.setState({ contact: event})
+  }
+
   render() {
-    let search = [];
-    for ( var i = 0; i < this.state.search_contacts.length; i++) {
-      search.push(this.state.search_contacts[i].name + ` ` + this.state.search_contacts[i].last_name)
-    }
-    debugger
     return(
       <div className="container">
       <h1>New Task</h1>
@@ -114,13 +122,9 @@ class NewTaskForm extends Component {
               </label>
             </div>
             <div className="form-control input-lg">
-              <Search items={search}
-                placeholder="Contact Name"
-                notFoundPlaceHolder="Contact Not Found"
-                maxSelected={1}
-                multiple={false}
-                value={this.state.contact}
-                onItemsChanged={this.handleChange} />
+              <Search items={this.state.contactSuggestions}
+                placeholder='Choose Contact'
+                onKeyChange={this.onKeyChange}/>
               </div>
             <div>
               <Button className="buttons" type="submit">Submit</Button>
