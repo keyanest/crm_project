@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router';
 import Search from 'react-search';
 import { Button } from 'react-bootstrap';
+import Select from 'react-select';
 
 class NewTaskForm extends Component {
   constructor(props) {
@@ -63,8 +64,11 @@ class NewTaskForm extends Component {
   }
 
   render() {
+    let search = [];
+    for ( var i = 0; i < this.state.search_contacts.length; i++) {
+      search.push(this.state.search_contacts[i].name + ` ` + this.state.search_contacts[i].last_name)
+    }
     debugger
-
     return(
       <div className="container">
       <h1>New Task</h1>
@@ -110,14 +114,14 @@ class NewTaskForm extends Component {
               </label>
             </div>
             <div className="form-control input-lg">
-            <input
-              type="text"
-              placeholder="Contact Name"
-              name="contact"
-              value={this.state.contact}
-              onChange={this.handleChange}
-            />
-            </div>
+              <Search items={search}
+                placeholder="Contact Name"
+                notFoundPlaceHolder="Contact Not Found"
+                maxSelected={1}
+                multiple={false}
+                value={this.state.contact}
+                onItemsChanged={this.handleChange} />
+              </div>
             <div>
               <Button className="buttons" type="submit">Submit</Button>
             </div>
