@@ -11,6 +11,7 @@ class NewTaskForm extends Component {
       body: '',
       due_date: '',
       send_email: false,
+      search_contacts: [],
       contact: '',
       errors: ''
     };
@@ -21,6 +22,15 @@ class NewTaskForm extends Component {
   contextTypes: {
     history: React.PropTypes.func.isRequired
  };
+
+  componentWillMount() {
+    $.ajax({
+      url: "api/contacts",
+      type: 'GET',
+    }).done(data => {
+      this.setState({ search_contacts: data });
+    })
+  }
 
 
   handleTaskFromSubmit(event) {
@@ -53,6 +63,8 @@ class NewTaskForm extends Component {
   }
 
   render() {
+    debugger
+
     return(
       <div className="container">
       <h1>New Task</h1>
