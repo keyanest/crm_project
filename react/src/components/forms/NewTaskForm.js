@@ -124,6 +124,7 @@ class NewTaskForm extends Component {
             <div className="form-control input-lg">
               <Search items={this.state.contactSuggestions}
                 placeholder='Choose Contact'
+                notFoundPlaceholder='Contact Not Found'
                 onKeyChange={this.onKeyChange}/>
               </div>
             <div>

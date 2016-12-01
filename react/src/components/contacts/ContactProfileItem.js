@@ -39,7 +39,6 @@ class ContactProfileItem extends Component {
               <li className="list-group-item">Department: {this.state.contact.department}</li>
             <Button className="buttons" type="submit" onClick={() => {this.props.history.pushState(null, `/contacts/${this.state.contact.id}/logs`)}}>Logs</Button>
             <Button className="buttons" type="submit" onClick={() => {this.props.history.pushState(null, `/contacts/${this.state.contact.id}/edit`)}}>Edit</Button>
-            <Button className="buttons" type="submit" onClick={() => {this.props.history.pushState(null, `/contacts/${this.state.contact.id}/edit`)}}>Edit</Button>
           </ul>
         </div>
       </div>
